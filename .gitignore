@@ -1,0 +1,8 @@
+node_modules
+packages/*/node_modules
+.DS_Store
+.tmp/
+**/*.swp
+*~
+.env
+.env*
