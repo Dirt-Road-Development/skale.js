@@ -18,11 +18,11 @@
   "description": "The monorepo package for SKALE Netowrk Abstractions",
   "main": "index.js",
   "scripts": {
-    "changelog": "changelog generate"
+    "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "author": "Sawyer Cutler",
   "license": "MIT",
   "devDependencies": {
-    "generate-changelog": "^1.8.0"
+    "auto-changelog": "^2.4.0"
   }
 }
