@@ -18,11 +18,14 @@
   "description": "The monorepo package for SKALE Netowrk Abstractions",
   "main": "index.js",
   "scripts": {
+    "build": "tsc --build ./tsconfig.package.json",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "author": "Sawyer Cutler",
   "license": "MIT",
   "devDependencies": {
-    "auto-changelog": "^2.4.0"
+    "@types/node": "^18.11.9",
+    "auto-changelog": "^2.4.0",
+    "typescript": "^4.9.3"
   }
 }
