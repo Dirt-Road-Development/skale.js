@@ -8,12 +8,15 @@
 **/
 
 import * as Address from './addresses';
+import * as Chains from './chains';
 
 const Constants = {
-    Address
+    Address,
+    Chains
 }
 
 export {
     Address,
+    Chains,
     Constants
 }
