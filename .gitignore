@@ -10,6 +10,6 @@ packages/*/node_modules
 .env*
 
 **/src.ts/*.js
-packages/**/*/lib
-**/packages/*/lib
-**/*/lib
+
+packages/constants/lib
+packages/skale/lib
