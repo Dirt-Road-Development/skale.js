@@ -10,6 +10,9 @@
     "references": [
         {
             "path": "./packages/skale"
+        },
+        {
+            "path": "./packages/skale-constants"
         }
     ],
     "files": []

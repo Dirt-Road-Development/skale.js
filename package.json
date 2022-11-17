@@ -1,7 +1,6 @@
 {
   "name": "@dirtroad/skale",
   "common": {
-    "ethereum": "0x11937B68Eac2b94F306B08E3595Bd907Be6726Bf",
     "funding": [
       {
         "type": "individual",

@@ -1,0 +1,17 @@
+{
+  "author": "Sawyer Cutler <sawyer@dirtroad.dev>",
+  "description": "Constants for the Skale.js package suite",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "@dirtroad/skale-constants",
+  "repository": {
+    "directory": "packages/skale-constants",
+    "type": "git",
+    "url": "git://github.com/Dirt-Road-Development/skale.js.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "sideEffects": false,
+  "version": "0.1.0"
+}
