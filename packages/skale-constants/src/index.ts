@@ -7,4 +7,13 @@
  *
 **/
 
-export {}
+import * as Address from './addresses';
+
+const Constants = {
+    Address
+}
+
+export {
+    Address,
+    Constants
+}
