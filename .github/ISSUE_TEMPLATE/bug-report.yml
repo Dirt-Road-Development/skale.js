@@ -1,0 +1,47 @@
+name: Report a Bug
+description: Open an issue relating to a bug found in SKALE.js
+title: "Bug Title"
+labels: ["bug"]
+assigness:
+  - thegreataxios
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **IMPORTANT**
+
+        Thank you for taking the time to report a bug. This form is used to provide formatted information on a bug in the SKALE.js monopackage.
+
+      If you are **new to SKALE.js** or not sure if this is a bug, you can [start a discussion](https://github.com/Dirt-Road-Development/skale.js/discussions) before filing the bug.
+
+  - type: input
+    id: version
+    attributes:
+      label: SKALE.js Version
+      description: What version of skale.js are you using? Make sure you are up to date before filing a bug
+      placeholder: x.y.z
+    validations:
+      required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the Bug 
+      description: Please describe what issue was. 
+      placeholder: The issue is...
+    validations:
+      required: true
+  - type: textarea
+    id: bug-expected
+    attributes:
+      label: Describe Expectations 
+      description: Please describe what you expected to happen.
+      placeholder: I expected...
+    validations:
+      required: true
+  - type: textarea
+    id: errors
+    attributes:
+      label: Errors
+      description: If there is an error, please include the **entire error** (**remove** any sensitive information).
+      placeholder: "e.g. Error: missing x in interface... (code='INVALID_ARGUMENT, ...)"
+      render: shell
