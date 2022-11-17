@@ -4,5 +4,10 @@ packages/*/node_modules
 .tmp/
 **/*.swp
 *~
+
+# EVN
 .env
 .env*
+
+**/src.ts/*.js
+

@@ -1,8 +1,8 @@
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/thegreataxios)
+Skale.js Project
+==================
+
+[![npm (tag)](https://img.shields.io/npm/v/@dirtroad/skale)](https://www.npmjs.com/package/@dirtroad/skale)
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/thegreataxios.svg?style=social&label=Follow%20%40thegreataxios)](https://twitter.com/thegreataxios)
-
-
-# The SKALE Community Project
 
 A community run project designed to offer abstraction over the core SKALE network smart contracts.
 
@@ -14,11 +14,6 @@ Installation
 npm add @dirtroad/skale
 
 ```
-
-Support the Project
-----------
-
-
 
 Official SKALE Packages
 ----------
