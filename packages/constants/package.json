@@ -5,7 +5,7 @@
   "main": "index.js",
   "name": "@dirtroad/skale-constants",
   "repository": {
-    "directory": "packages/skale-constants",
+    "directory": "packages/constants",
     "type": "git",
     "url": "git://github.com/Dirt-Road-Development/skale.js.git"
   },
