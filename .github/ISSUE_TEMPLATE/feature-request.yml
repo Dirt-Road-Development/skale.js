@@ -1,0 +1,26 @@
+name: Feature Request
+description: Suggest or Request a New Feature for the SKALE.js Library
+title: "Feature Request Title"
+labels: [ "feature", "enhancement" ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The best place to start a new feature request is by starting an [Idea discussion](https://github.com/Dirt-Road-Development/skale.js/discussions).
+
+        Keep in mind that new features will increase the library size, and may require additional dependencies. SKALE.js strives to be as small as possible and to keep the number of dependencies low, so many features may make more sense as external packages.
+  - type: textarea
+    id: enhancment-description 
+    attributes:
+      label: Describe the Feature
+      description: Please describe the feature and the problem it is solving.
+      placeholder: e.g. I want SKALE.js to offer more flexiblity with IMA. 
+    validations:
+      required: true
+  - type: textarea
+    id: enhancment-code-example 
+    attributes:
+      label: Code Example
+      description: Optionally, provide an example of how the feature would be used in code.
+      placeholder: e.g. ima.flexible(contracA, contractB, bridge, 100);
+      render: shell
