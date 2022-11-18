@@ -1,8 +1,12 @@
 {
   "author": "Sawyer Cutler <sawyer@dirtroad.dev>",
+  "dependencies": {
+    "@dirtroad/skale-constants": "^0.1.0"
+  },
   "description": "The core skale.js package",
   "license": "MIT",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "name": "@dirtroad/skale",
   "repository": {
     "directory": "packages/skale",

@@ -2,7 +2,8 @@
   "author": "Sawyer Cutler <sawyer@dirtroad.dev>",
   "description": "Constants for the Skale.js package suite",
   "license": "MIT",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "name": "@dirtroad/skale-constants",
   "repository": {
     "directory": "packages/constants",

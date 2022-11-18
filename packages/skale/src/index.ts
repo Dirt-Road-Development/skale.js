@@ -1,10 +1,12 @@
-/**
- *
- * @author Sawyer Cutler
- * @license MIT
- * @copyright Dirt Road Dev
- * @package @dirtroad/skale
- *
-**/
+import { Constants } from "@dirtroad/skale-constants";
 
-export {}
+
+
+const skale = {
+    Constants    
+}
+
+export {
+    skale,
+    Constants
+}

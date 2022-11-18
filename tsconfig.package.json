@@ -12,7 +12,10 @@
             "path": "./packages/skale"
         },
         {
-            "path": "./packages/skale-constants"
+            "path": "./packages/constants"
+        },
+        {
+            "path": "./packages/tests"
         }
     ],
     "files": []
