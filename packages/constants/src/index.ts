@@ -2,13 +2,13 @@
  *
  * @author Sawyer Cutler
  * @license MIT
- * @copyright Dirt Road Dev
- * @package @dirtroad/skale
+ * @copyright 2022 Dirt Road Dev
+ * @package @skale.js/constants
  *
 **/
 
-import * as Address from './addresses';
-import * as Chains from './chains';
+import * as Address from "./addresses";
+import * as Chains from "./chains";
 
 const Constants = {
     Address,
@@ -20,3 +20,5 @@ export {
     Chains,
     Constants
 }
+
+export * as Assertions from "./assertions";

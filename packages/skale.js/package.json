@@ -7,7 +7,7 @@
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
-  "name": "@dirtroad/skale",
+  "name": "@skale.js",
   "repository": {
     "directory": "packages/skale",
     "type": "git",
