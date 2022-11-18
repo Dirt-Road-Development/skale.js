@@ -20,8 +20,6 @@
     "build": "tsc --build ./tsconfig.package.json",
     "dev": "nodemon --watch \"./packages/**/*.*\" --exec npm run build",
     "publish": "npm publish --workspaces --access public",
-    "test": "mocha -r ts-node/register tests/**/*.ts",
-    "test:watch": "mocha -r ts-node/register tests/**/*.ts --watch --watch-files test",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "author": "Sawyer Cutler",
@@ -38,6 +36,6 @@
     "typescript": "^4.9.3"
   },
   "workspaces": [
-    "packages" 
+    "packages"
   ]
 }
