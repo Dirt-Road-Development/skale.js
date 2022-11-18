@@ -1,4 +1,4 @@
-/**
+/*
  *
  * @author Sawyer Cutler
  * @license MIT
@@ -6,4 +6,13 @@
  * @package @skale.js/utils
  *
 **/
-export {}
+
+import * as RoleUtils from "./role";
+
+const Utils = {
+    ...RoleUtils
+}
+
+export {
+    Utils
+}
