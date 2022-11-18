@@ -9,7 +9,10 @@
     },
     "references": [
         {
-            "path": "./packages/skale"
+            "path": "./packages/skale.js"
+        },
+        {
+            "path": "./packages/constants"
         }
     ],
     "files": []

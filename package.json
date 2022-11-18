@@ -1,7 +1,6 @@
 {
   "name": "@dirtroad/skale",
   "common": {
-    "ethereum": "0x11937B68Eac2b94F306B08E3595Bd907Be6726Bf",
     "funding": [
       {
         "type": "individual",
@@ -19,13 +18,24 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc --build ./tsconfig.package.json",
+    "dev": "nodemon --watch \"./packages/**/*.*\" --exec npm run build",
+    "publish": "npm publish --workspaces --access public",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "author": "Sawyer Cutler",
   "license": "MIT",
+  "dependencies": {
+    "@dirtroad/skale": "./packages/skale"
+  },
   "devDependencies": {
     "@types/node": "^18.11.9",
     "auto-changelog": "^2.4.0",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "tsc-watch": "^5.0.3",
     "typescript": "^4.9.3"
-  }
+  },
+  "workspaces": [
+    "packages"
+  ]
 }

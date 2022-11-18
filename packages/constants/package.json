@@ -1,0 +1,46 @@
+{
+  "name": "@skale.js/constants",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.0",
+    "chai": "^4.3.7",
+    "mocha": "^10.1.0",
+    "nyc": "^15.1.0"
+  },
+  "scripts": {
+    "build": "tsc --build ./tsconfig.json",
+    "dev": "nodemon --watch \"./src/**/*.*\" --exec npm run build",
+    "test": "mocha -r ts-node/register tests/**/*.ts",
+    "test:coverage": "nyc npm run test",
+    "test:watch": "mocha -r ts-node/register tests/**/*.ts --watch --watch-files test"
+  },
+  "repository": {
+    "directory": "packages/constants",
+    "type": "git",
+    "url": "git+https://github.com/Dirt-Road-Development/skale.js.git"
+  },
+  "keywords": [],
+  "author": "Sawyer Cutler <sawyer@dirtroad.dev>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dirt-Road-Development/skale.js/issues"
+  },
+  "homepage": "https://github.com/Dirt-Road-Development/skale.js#readme",
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "check-coverage": true,
+    "all": true,
+    "reporter": [
+        "html",
+        "lcov",
+        "text",
+        "text-summary"
+    ],
+        "report-dir": "coverage"
+    }
+}

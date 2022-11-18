@@ -11,3 +11,9 @@ packages/*/node_modules
 
 **/src.ts/*.js
 
+packages/**/lib
+packages/constants/lib
+packages/skale.js/lib
+
+.nyc_output
+packages/**/.nyc_output
