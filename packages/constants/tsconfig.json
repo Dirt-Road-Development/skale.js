@@ -3,9 +3,13 @@
     "outDir": "./lib/",
     "rootDir": "./src"
   },
-  "exclude": [],
+  "exclude": [
+    "./tests/*",
+    "./coverage/*"
+  ],
   "extends": "../../tsconfig.base.json",
   "include": [
-    "./src/*"
+    "./src/*",
+    "./tests/*"
   ]
 }
