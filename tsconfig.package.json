@@ -12,6 +12,9 @@
             "path": "./packages/constants"
         },
         {
+            "path": "./packages/etherbase"
+        },
+        {
             "path": "./packages/skale.js"
         },
         {

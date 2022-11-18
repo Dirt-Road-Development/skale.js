@@ -2,7 +2,7 @@ import { expect } from "chai";
 import {
   Chain 
 } from "../src";
-import { Assertions } from "@skale.js/constants";
+import { Assertions } from "@skaleproject/constants";
 
 describe("Chain Function Checks", () => {
     describe("compareChainIds(hex: string, decimal: number)", () => {

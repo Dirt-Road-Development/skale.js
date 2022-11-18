@@ -24,9 +24,6 @@
   },
   "author": "Sawyer Cutler",
   "license": "MIT",
-  "dependencies": {
-    "@skale.js": "./packages/skale"
-  },
   "devDependencies": {
     "@types/node": "^18.11.9",
     "auto-changelog": "^2.4.0",

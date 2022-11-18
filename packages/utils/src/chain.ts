@@ -1,6 +1,6 @@
 import assert from "assert";
 import { BigNumber, utils } from "ethers";
-import { Assertions } from "@skale.js/constants";
+import { Assertions } from "@skaleproject/constants";
 
 const _isHexString = (hex: string) => {
     assert(utils.isHexString(hex), Assertions.INVALID_HEX_VALUE);
