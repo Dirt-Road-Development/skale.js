@@ -44,6 +44,7 @@
     "report-dir": "coverage"
   },
   "dependencies": {
-    "ethers": "^5.7.2"
+    "ethers": "^5.7.2",
+    "@skale.js/constants": "../constants"
   }
 }
