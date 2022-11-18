@@ -1,7 +1,10 @@
 {
-  "name": "@skale.js/constants",
-  "version": "1.0.0",
+  "name": "@skaleproject/constants",
+  "version": "0.1.1",
   "description": "",
+  "files": [
+    "lib/**"
+  ],
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "devDependencies": {
@@ -41,6 +44,6 @@
         "text",
         "text-summary"
     ],
-        "report-dir": "coverage"
-    }
+    "report-dir": "coverage"
+  }
 }

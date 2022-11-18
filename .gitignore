@@ -17,3 +17,5 @@ packages/skale.js/lib
 
 .nyc_output
 packages/**/.nyc_output
+
+**/*.tgz

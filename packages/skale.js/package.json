@@ -1,13 +1,16 @@
 {
   "author": "Sawyer Cutler <sawyer@dirtroad.dev>",
   "dependencies": {
-    "@skale.js/constants": "../constants"
+    "@skaleproject/constants": "../constants"
   },
+  "files": [
+    "lib/*"
+  ],
   "description": "The core skale.js package",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
-  "name": "@skale.js",
+  "name": "@skaleproject/skale.js",
   "repository": {
     "directory": "packages/skale",
     "type": "git",
