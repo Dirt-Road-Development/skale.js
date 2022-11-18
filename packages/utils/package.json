@@ -1,9 +1,12 @@
 {
-  "name": "@skale.js/utils",
+  "name": "@skaleproject/utils",
   "version": "0.1.0",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
+  "files": [
+    "lib/*"
+  ],
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@types/chai": "^4.3.4",
@@ -45,6 +48,6 @@
   },
   "dependencies": {
     "ethers": "^5.7.2",
-    "@skale.js/constants": "../constants"
+    "@skaleproject/constants": "^0.1.0"
   }
 }
