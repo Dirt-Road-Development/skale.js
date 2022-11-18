@@ -25,7 +25,3 @@ export const hexToBigNumber = (hex: string) : BigNumber => {
 export const decimalToHex = (decimal: number) : string => {
     return "0x" + Number(decimal).toString(16);
 }
-
-export const bigNumberToHex = (bn: BigNumber) : string => {
-    return bn.toHexString();
-}

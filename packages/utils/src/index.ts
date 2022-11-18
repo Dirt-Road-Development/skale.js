@@ -7,12 +7,15 @@
  *
 **/
 
-import * as RoleUtils from "./role";
-
+import * as Role from "./role";
+import * as Chain from "./chain";
 const Utils = {
-    ...RoleUtils
+    ...Role,
+    ...Chain
 }
 
 export {
-    Utils
+    Chain,
+    Utils,
+    Role
 }

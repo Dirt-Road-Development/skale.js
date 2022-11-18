@@ -4,10 +4,12 @@
     "rootDir": "./src"
   },
   "exclude": [
+    "./tests/*",
     "./coverage/*"
   ],
   "extends": "../../tsconfig.base.json",
   "include": [
-    "./src"
+    "./src",
+    "./tests/*"
   ]
 }

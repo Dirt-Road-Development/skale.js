@@ -17,7 +17,7 @@
     "dev": "nodemon --watch \"./src/**/*.*\" --exec npm run build",
     "test": "mocha -r ts-node/register tests/**/*.ts",
     "test:coverage": "nyc npm run test",
-    "test:watch": "mocha -r ts-node/register tests/**/*.ts --watch --watch-files test"
+    "test:watch": "mocha -r ts-node/register tests/**/*.ts --watch --watch-files .ts"
   },
   "repository": {
     "directory": "packages/utils",
