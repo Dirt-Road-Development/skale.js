@@ -13,3 +13,6 @@ packages/*/node_modules
 
 packages/constants/lib
 packages/skale/lib
+
+.nyc_output
+packages/**/.nyc_output
