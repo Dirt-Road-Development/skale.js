@@ -7,20 +7,10 @@
   "files": [
     "lib/*"
   ],
-  "devDependencies": {
-    "@istanbuljs/nyc-config-typescript": "^1.0.2",
-    "@types/chai": "^4.3.4",
-    "@types/mocha": "^10.0.0",
-    "chai": "^4.3.7",
-    "mocha": "^10.1.0",
-    "nyc": "^15.1.0"
-  },
   "scripts": {
     "build": "tsc --build ./tsconfig.json",
     "dev": "nodemon --watch \"./src/**/*.*\" --exec npm run build",
-    "test": "mocha -r ts-node/register tests/**/*.ts",
-    "test:coverage": "nyc npm run test",
-    "test:watch": "mocha -r ts-node/register tests/**/*.ts --watch --watch-files .ts"
+    "test": "jest --watchAll"
   },
   "repository": {
     "directory": "packages/utils",
@@ -46,8 +36,13 @@
     ],
     "report-dir": "coverage"
   },
+  "devDependencies": {
+    "@types/jest": "^29.2.3",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.3"
+  },
   "dependencies": {
-    "ethers": "^5.7.2",
-    "@skaleproject/constants": "^0.1.0"
+    "@skaleproject/constants": "^0.1.0",
+    "ethers": "^5.7.2"
   }
 }

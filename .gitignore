@@ -16,9 +16,7 @@ packages/constants/lib
 packages/skale.js/lib
 packages/utils/lib
 packages/etherbase/lib
+packages/**/coverage
 
-packages/**/.nyc_output
-
-.nyc_output
 
 **/*.tgz
