@@ -24,7 +24,7 @@ jobs:
       run: npm ci
 
     - name: Build Packages
-      run: npm build
+      run: npm run build
 
     - name: Run the tests
       run: npm test -- --coverage && make-test-coverage
