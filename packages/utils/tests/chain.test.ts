@@ -47,17 +47,17 @@ describe("Chain Function Checks", () => {
         it("Should Throw Assertion Error", () => {
             expect(() => {
                 Chain.compareChainIds("abc", 123)
-            }).to.Throw(Assertions.INVALID_HEX_VALUE);
+            }).toThrow(Assertions.INVALID_HEX_VALUE);
 
 
             expect(() => {
                 Chain.compareChainIds("abc", 123)
-            }).to.Throw(Assertions.INVALID_HEX_VALUE);
+            }).toThrow(Assertions.INVALID_HEX_VALUE);
 
 
             expect(() => {
                 Chain.compareChainIds("abc", 123)
-            }).to.Throw(Assertions.INVALID_HEX_VALUE);
+            }).toThrow(Assertions.INVALID_HEX_VALUE);
         })
     })
     

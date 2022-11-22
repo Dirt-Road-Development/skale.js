@@ -20,7 +20,8 @@
     "build": "tsc --build ./tsconfig.package.json",
     "dev": "nodemon --watch \"./packages/**/*.*\" --exec npm run build",
     "publish": "npm publish --workspaces --access public",
-    "version": "auto-changelog -p && git add CHANGELOG.md"
+    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "test": "jest --testTimeout=15000 packages/*"
   },
   "author": "Sawyer Cutler",
   "license": "MIT",
@@ -34,5 +35,8 @@
   },
   "workspaces": [
     "./packages/*"
-  ]
+  ],
+  "dependencies": {
+    "make-coverage-badge": "^1.2.0"
+  }
 }

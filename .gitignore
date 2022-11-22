@@ -17,6 +17,6 @@ packages/skale.js/lib
 packages/utils/lib
 packages/etherbase/lib
 packages/**/coverage
-
+coverage
 
 **/*.tgz

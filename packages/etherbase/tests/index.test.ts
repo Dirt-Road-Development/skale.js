@@ -72,7 +72,7 @@ describe("Etherbase Test Suite", () => {
             await expect(etherbase.partiallyRetrieve({ receiver: Addresses.ZERO_ADDRESS, amount: ethers.constants.MaxUint256, runChecks: true })).rejects.toThrow("Contract: Insufficient Funds to Retrieve");
         })
         
-        test("partiallyRetrieve({ reciever, amount: Max, runChecks: true })", async() => {
+        test("partiallyRetrieve({ reciever, amount: One, runChecks: true })", async() => {
             const { etherbase } = await signerFixture();
             await expect(etherbase.partiallyRetrieve({ receiver: Addresses.ZERO_ADDRESS, amount: ethers.constants.One, runChecks: true })).rejects.toThrow("Etherbase: Not ETHER_MANAGER_ROLE");
         })
