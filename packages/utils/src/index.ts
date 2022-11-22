@@ -9,13 +9,20 @@
 
 import * as Role from "./role";
 import * as Chain from "./chain";
+import * as Contract from "./contract"
+import * as Provider from "./provider"
+
 const Utils = {
+    ...Chain,
+    ...Contract,
+    ...Provider,
     ...Role,
-    ...Chain
 }
 
 export {
     Chain,
+    Contract,
+    Provider,
+    Role,
     Utils,
-    Role
 }

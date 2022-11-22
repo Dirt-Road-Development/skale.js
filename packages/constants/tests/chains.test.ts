@@ -1,79 +1,78 @@
-import { expect } from "chai";
 import { Constants } from "../src";
 
 describe("Chain Checks", () => {
-    it("Should Check Proxy Bases", () => {
-        expect(Constants.Chains.ProxyBase.mainnet).to.be.equal("mainnet.skalenodes.com");
-        expect(Constants.Chains.ProxyBase.staging).to.be.equal("staging-v3.skalenodes.com");
+    test("Should Check Proxy Bases", () => {
+        expect(Constants.Chains.ProxyBase.mainnet).toEqual("mainnet.skalenodes.com");
+        expect(Constants.Chains.ProxyBase.staging).toEqual("staging-v3.skalenodes.com");
     })
-    it("Mainnet Checks", () => {
-        expect(Constants.Chains.Mainnet).to.be.equal("Mainnet");
-        expect(Constants.Address.Mainnet).to.not.be.equal("Testnet");
-        expect(Constants.Chains.Mainnet).to.not.be.equal("Staging");
-        expect(Constants.Chains.Mainnet).to.not.be.equal("Ethereum");
+    test("Mainnet Checks", () => {
+        expect(Constants.Chains.Mainnet).toEqual("Mainnet");
+        expect(Constants.Address.Mainnet).not.toEqual("Testnet");
+        expect(Constants.Chains.Mainnet).not.toEqual("Staging");
+        expect(Constants.Chains.Mainnet).not.toEqual("Ethereum");
     });
     describe("Mainnet Schain Checks", () => {
-        it("SKALE Chain Name Checks", () => {
+        test("SKALE Chain Name Checks", () => {
             const keys: string[] = Object.keys(Constants.Chains.MainnetChains);
 
-            expect(keys).to.include("adorable-quaint-bellatrix");
-            expect(keys).to.include("affectionate-immediate-pollux");
-            expect(keys).to.include("elated-tan-skat");
-            expect(keys).to.include("frayed-decent-antares");
-            expect(keys).to.include("green-giddy-denebola");
-            expect(keys).to.include("haunting-devoted-deneb");
-            expect(keys).to.include("honorable-steel-rasalhague");
-            expect(keys).to.include("light-vast-diphda");
-            expect(keys).to.include("parallel-stormy-spica");
-            expect(keys).to.include("portly-passionate-sirius");
-            expect(keys).to.include("round-hasty-alsafi");
-            expect(keys).to.include("turbulent-unique-scheat");
+            expect(keys).toContain("adorable-quaint-bellatrix");
+            expect(keys).toContain("affectionate-immediate-pollux");
+            expect(keys).toContain("elated-tan-skat");
+            expect(keys).toContain("frayed-decent-antares");
+            expect(keys).toContain("green-giddy-denebola");
+            expect(keys).toContain("haunting-devoted-deneb");
+            expect(keys).toContain("honorable-steel-rasalhague");
+            expect(keys).toContain("light-vast-diphda");
+            expect(keys).toContain("parallel-stormy-spica");
+            expect(keys).toContain("portly-passionate-sirius");
+            expect(keys).toContain("round-hasty-alsafi");
+            expect(keys).toContain("turbulent-unique-scheat");
         })
-        it("Community Chain Existence Check", () => {
+        test("Community Chain Existence Check", () => {
             const values: string[] = Object.values(Constants.Chains.MainnetChains);
 
-            expect(values).to.include("Own Your Stream");
-            expect(values).to.include("CryptoBlades");
-            expect(values).to.include("Europa Hub");
-            expect(values).to.include("Brawl Chain");
-            expect(values).to.include("Nebula Gaming Hub");
-            expect(values).to.include("Crypto Rome Chain");
-            expect(values).to.include("Calypso NFT Hub");
-            expect(values).to.include("Exorde Network");
-            expect(values).to.include("SKALE Community Hub");
-            expect(values).to.include("Solydaria");
-            expect(values).to.include("DEXGames");
-            expect(values).to.include("Razor Network");
+            expect(values).toContain("Own Your Stream");
+            expect(values).toContain("CryptoBlades");
+            expect(values).toContain("Europa Hub");
+            expect(values).toContain("Brawl Chain");
+            expect(values).toContain("Nebula Gaming Hub");
+            expect(values).toContain("Crypto Rome Chain");
+            expect(values).toContain("Calypso NFT Hub");
+            expect(values).toContain("Exorde Network");
+            expect(values).toContain("SKALE Community Hub");
+            expect(values).toContain("Solydaria");
+            expect(values).toContain("DEXGames");
+            expect(values).toContain("Razor Network");
         })
-        it("Mainnet Chain Name Matching", () => {
+        test("Mainnet Chain Name Matching", () => {
             const chains: {[key: string]: string} = Constants.Chains.MainnetChains;
 
-            expect(chains["adorable-quaint-bellatrix"]).to.be.equal("Own Your Stream");
-            expect(chains["affectionate-immediate-pollux"]).to.be.equal("CryptoBlades");
-            expect(chains["elated-tan-skat"]).to.be.equal("Europa Hub");
-            expect(chains["frayed-decent-antares"]).to.be.equal("Brawl Chain");
-            expect(chains["green-giddy-denebola"]).to.be.equal("Nebula Gaming Hub");
-            expect(chains["haunting-devoted-deneb"]).to.be.equal("Crypto Rome Chain");
-            expect(chains["honorable-steel-rasalhague"]).to.be.equal("Calypso NFT Hub");
-            expect(chains["light-vast-diphda"]).to.be.equal("Exorde Network");
-            expect(chains["parallel-stormy-spica"]).to.be.equal("SKALE Community Hub");
-            expect(chains["portly-passionate-sirius"]).to.be.equal("Solydaria");
-            expect(chains["round-hasty-alsafi"]).to.be.equal("DEXGames");
-            expect(chains["turbulent-unique-scheat"]).to.be.equal("Razor Network");
+            expect(chains["adorable-quaint-bellatrix"]).toEqual("Own Your Stream");
+            expect(chains["affectionate-immediate-pollux"]).toEqual("CryptoBlades");
+            expect(chains["elated-tan-skat"]).toEqual("Europa Hub");
+            expect(chains["frayed-decent-antares"]).toEqual("Brawl Chain");
+            expect(chains["green-giddy-denebola"]).toEqual("Nebula Gaming Hub");
+            expect(chains["haunting-devoted-deneb"]).toEqual("Crypto Rome Chain");
+            expect(chains["honorable-steel-rasalhague"]).toEqual("Calypso NFT Hub");
+            expect(chains["light-vast-diphda"]).toEqual("Exorde Network");
+            expect(chains["parallel-stormy-spica"]).toEqual("SKALE Community Hub");
+            expect(chains["portly-passionate-sirius"]).toEqual("Solydaria");
+            expect(chains["round-hasty-alsafi"]).toEqual("DEXGames");
+            expect(chains["turbulent-unique-scheat"]).toEqual("Razor Network");
         })
-        it("Should have 2 v1 chains", () => {
-            expect(Object.keys(Constants.Chains.V1Chains)).lengthOf(2);
+        test("Should have 2 v1 chains", () => {
+            expect(Object.keys(Constants.Chains.V1Chains)).toHaveLength(2);
         })
-        it("Should throw not undefined or null for all random checks", () => {
+        test("Should throw not undefined or null for all random checks", () => {
             const rng1: string = "abcdefghijklmop";
             const rng2: string = "random-chain-name";
 
-            expect(Constants.Chains.MainnetChains[rng1]).to.be.undefined;
-            expect(Constants.Chains.MainnetChains[rng2]).to.be.undefined;
-            expect(Constants.Chains.StagingChains[rng1]).to.be.undefined;
-            expect(Constants.Chains.StagingChains[rng2]).to.be.undefined;
-            expect(Constants.Chains.V1Chains[rng1]).to.be.undefined;
-            expect(Constants.Chains.V1Chains[rng2]).to.be.undefined;
+            expect(Constants.Chains.MainnetChains[rng1]).toBeUndefined;
+            expect(Constants.Chains.MainnetChains[rng2]).toBeUndefined;
+            expect(Constants.Chains.StagingChains[rng1]).toBeUndefined;
+            expect(Constants.Chains.StagingChains[rng2]).toBeUndefined;
+            expect(Constants.Chains.V1Chains[rng1]).toBeUndefined;
+            expect(Constants.Chains.V1Chains[rng2]).toBeUndefined;
             
         })
     });

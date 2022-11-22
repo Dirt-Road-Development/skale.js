@@ -5,7 +5,7 @@
  * @package @skale.js
 **/
 
-import { Constants } from "@skale.js/constants";
+import { Constants } from "@skaleproject/constants";
 
 const skale = {
     Constants,

@@ -12,11 +12,14 @@
             "path": "./packages/constants"
         },
         {
-            "path": "./packages/skale.js"
+            "path": "./packages/utils"
         },
         {
-            "path": "./packages/utils"
-        }
+            "path": "./packages/etherbase"
+        },
+        {
+            "path": "./packages/skale.js"
+        },
     ],
     "files": []
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@skaleproject/utils",
+  "name": "@skaleproject/etherbase",
   "version": "0.1.0",
   "description": "",
   "main": "./lib/index.js",
@@ -7,13 +7,19 @@
   "files": [
     "lib/*"
   ],
+  "devDependencies": {
+    "@types/jest": "^29.2.3",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.3"
+  },
   "scripts": {
     "build": "tsc --build ./tsconfig.json",
-    "dev": "nodemon --watch \"./src/**/*.*\" --exec npm run build",
-    "test": "jest --watchAll"
+    "build:watch": "nodemon --watch \"./src/**/*.*\" --exec npm run build",
+    "test": "jest --testTimeout=15000",
+    "test:watch": "jest --watchAll --testTimeout=15000"
   },
   "repository": {
-    "directory": "packages/utils",
+    "directory": "packages/etherbase",
     "type": "git",
     "url": "git+https://github.com/Dirt-Road-Development/skale.js.git"
   },
@@ -24,13 +30,9 @@
     "url": "https://github.com/Dirt-Road-Development/skale.js/issues"
   },
   "homepage": "https://github.com/Dirt-Road-Development/skale.js#readme",
-  "devDependencies": {
-    "@types/jest": "^29.2.3",
-    "jest": "^29.3.1",
-    "ts-jest": "^29.0.3"
-  },
   "dependencies": {
-    "@skaleproject/constants": "^0.1.0",
+    "@skaleproject/constants": "^0.1.1",
+    "@skaleproject/utils": "../utils",
     "ethers": "^5.7.2"
   }
 }
