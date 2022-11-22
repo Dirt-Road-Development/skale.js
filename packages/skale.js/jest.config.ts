@@ -1,8 +1,6 @@
 export default {
   collectCoverage: true,
 
-  coverageDirectory: "coverage",
-
   // An object that configures minimum threshold enforcement for coverage results
   coverageThreshold: 94,
 

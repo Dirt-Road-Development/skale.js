@@ -27,4 +27,7 @@ jobs:
       run: npm run build
 
     - name: Run the tests
-      run: npm test -- --coverage && make-test-coverage
+      run: npm test -- --coverage
+
+    - name: Coverage Badge
+      run: npm run test:coverage
