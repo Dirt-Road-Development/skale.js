@@ -1,6 +1,6 @@
 Skale.js Project
 ==================
-
+[![Code Coverage](https://github.com/Dirt-Road-Development/skale.js/actions/workflows/coverage.yml/badge.svg?branch=main)](https://github.com/Dirt-Road-Development/skale.js/actions/workflows/coverage.yml)
 [![npm (tag)](https://img.shields.io/npm/v/@dirtroad/skale)](https://www.npmjs.com/package/@dirtroad/skale)
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/thegreataxios.svg?style=social&label=Follow%20%40thegreataxios)](https://twitter.com/thegreataxios)
 
