@@ -24,18 +24,6 @@
     "url": "https://github.com/Dirt-Road-Development/skale.js/issues"
   },
   "homepage": "https://github.com/Dirt-Road-Development/skale.js#readme",
-  "nyc": {
-    "extends": "@istanbuljs/nyc-config-typescript",
-    "check-coverage": true,
-    "all": true,
-    "reporter": [
-      "html",
-      "lcov",
-      "text",
-      "text-summary"
-    ],
-    "report-dir": "coverage"
-  },
   "devDependencies": {
     "@types/jest": "^29.2.3",
     "jest": "^29.3.1",
@@ -43,7 +31,6 @@
   },
   "dependencies": {
     "@skaleproject/constants": "^0.1.0",
-    "ethers": "^5.7.2",
-    "packages": "^0.0.8"
+    "ethers": "^5.7.2"
   }
 }
