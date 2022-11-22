@@ -29,17 +29,5 @@
   "bugs": {
     "url": "https://github.com/Dirt-Road-Development/skale.js/issues"
   },
-  "homepage": "https://github.com/Dirt-Road-Development/skale.js#readme",
-  "nyc": {
-    "extends": "@istanbuljs/nyc-config-typescript",
-    "check-coverage": true,
-    "all": true,
-    "reporter": [
-      "html",
-      "lcov",
-      "text",
-      "text-summary"
-    ],
-    "report-dir": "coverage"
-  }
+  "homepage": "https://github.com/Dirt-Road-Development/skale.js#readme"
 }
