@@ -1,4 +1,4 @@
-Skale.js Project
+skale.js | The SKALE Network SDK
 ==================
 [![Code Coverage](https://github.com/Dirt-Road-Development/skale.js/actions/workflows/coverage.yml/badge.svg?branch=main)](https://github.com/Dirt-Road-Development/skale.js/actions/workflows/coverage.yml)
 [![npm (tag)](https://img.shields.io/npm/v/@dirtroad/skale)](https://www.npmjs.com/package/@dirtroad/skale)
