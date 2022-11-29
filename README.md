@@ -23,6 +23,12 @@ Currently the core team building and supporting the SKALE Network offers the fol
 - [IMA](https://github.com/skalenetwork/ima-js)
 - [Metaport](https://github.com/skalenetwork/metaport)
 
+Workflows
+----------
+
+- Coverage -> Code Coverage Badge
+- Publish -> Publish Packages and Auto-Bump
+
 License
 ----------
 MIT License (including all sub projects)
