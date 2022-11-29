@@ -9,7 +9,9 @@ jobs:
   publish:
     # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # set this token manually
+
     strategy:
       matrix:
         node-version: [16.x]
@@ -19,11 +21,16 @@ jobs:
       with:
         fetch-depth: "0"
         persist-credentials: false
+        token: ${{ secrets.GITHUB_TOKEN }} # this token is available by default
 
     - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Conifrm NPM Publishability
+      run: npm whoami # will throw and exit if npm is not ready to publish
 
     - name: Install dependencies
       run: npm ci
