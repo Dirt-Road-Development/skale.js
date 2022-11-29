@@ -30,7 +30,7 @@
     "ts-jest": "^29.0.3"
   },
   "dependencies": {
-    "@skaleproject/constants": "^0.1.0",
+    "@skaleproject/constants": "*",
     "ethers": "^5.7.2"
   }
 }
