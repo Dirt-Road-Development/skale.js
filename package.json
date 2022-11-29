@@ -29,6 +29,7 @@
   "devDependencies": {
     "@types/node": "^18.11.9",
     "auto-changelog": "^2.4.0",
+    "lerna": "^6.0.3",
     "nodemon": "^2.0.20",
     "ts-node": "^10.8.0",
     "tsc-watch": "^5.0.3",

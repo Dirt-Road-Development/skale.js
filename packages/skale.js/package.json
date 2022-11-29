@@ -1,7 +1,7 @@
 {
   "author": "Sawyer Cutler <sawyer@dirtroad.dev>",
   "dependencies": {
-    "@skaleproject/constants": "../constants"
+    "@skaleproject/constants": "*"
   },
   "files": [
     "lib/*"

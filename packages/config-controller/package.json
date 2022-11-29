@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/Dirt-Road-Development/skale.js#readme",
   "dependencies": {
-    "@skaleproject/constants": "^0.1.1",
-    "@skaleproject/utils": "../utils",
+    "@skaleproject/constants": "*",
+    "@skaleproject/utils": "*",
     "ethers": "^5.7.2"
   }
 }
