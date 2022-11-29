@@ -210,11 +210,8 @@ export class ConfigController extends AccessControlEnumerable {
         const signer = this.contract.signer;
         const address = await signer.getAddress();
         const hasRole: boolean = await this.hasRole({ role: this.MTM_ADMIN_ROLE, account: address });
-        console.log("MTM HAS ROLE: ", hasRole);
         assert(hasRole, "ConfigController: Does Not have MTM_ADMIN_ROLE")
         const isMTMEnabled: boolean = await this.isMTMEnabled();
-        console.log("MTM Enable: ", isEnable);
-        console.log("Status: ", isMTMEnabled);
         assert(isEnable !== isMTMEnabled, isEnable ? "MTM Already Enabled" : "MTM Already Disabled");
     }
 
