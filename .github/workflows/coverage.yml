@@ -21,10 +21,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Link Dependencies
-      run: npx lerna link
+      run: npx lerna link && npm run ci
 
     - name: Install dependencies
-      run: npm ci
+      run: npx lerna install 
 
     - name: Build Packages
       run: npm run build
