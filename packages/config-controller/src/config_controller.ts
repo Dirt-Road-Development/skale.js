@@ -43,7 +43,10 @@ export class ConfigController extends AccessControlEnumerable {
      * @public
     **/
      public async addToWhitelist(params: IWhitelist) : Promise<ContractReceipt> {
-        assert(this.signer, "Contract: Does not have a Signer");
+        // console.log("SIGNER");
+        // console.log(this.signer);
+        // assert(this.signer, "Contract: Does not have a Signer");
+        this.checkSigner();
         if (params.runChecks) {
             assert(utils.isAddress(params.address), "Invalid Ethereum Address");
             const hasDeployerAdminRole: boolean = await this.hasRole({ role: this.DEPLOYER_ADMIN_ROLE, account: this.signer.address });
@@ -106,14 +109,14 @@ export class ConfigController extends AccessControlEnumerable {
     /**
      * 
      * @function enableMTM
-     * @param runChecks
+     * @param params
      * @returns ContractReceipt
      * @public
      * 
     **/
-    public async enableMTM({ runChecks }: IDefault) : Promise<ContractReceipt> {
-        assert(this.signer, "Contract: Does not have a Signer");
-        if (runChecks) await this.mtmChecks({ isEnable: true });
+    public async enableMTM(params?: IDefault) : Promise<ContractReceipt> {
+        this.checkSigner();
+        if (params && params.runChecks) await this.mtmChecks({ isEnable: true });
         try {
             return await this.contract.enableMTM();
         } catch (err) {
@@ -124,14 +127,14 @@ export class ConfigController extends AccessControlEnumerable {
     /**
      * 
      * @function disableMTM
-     * @param runChecks
+     * @param params
      * @returns ContractReceipt
      * @public
      * 
     **/ 
-    public async disableMTM({ runChecks }: IDefault) : Promise<ContractReceipt> {
-        assert(this.signer, "Contract: Does not have a Signer");
-        if (runChecks) await this.mtmChecks({ isEnable: false });
+    public async disableMTM(params?: IDefault) : Promise<ContractReceipt> {
+        this.checkSigner();
+        if (params?.runChecks) await this.mtmChecks({ isEnable: false });
 
         try {
             return await this.contract.disableMTM();
@@ -147,9 +150,9 @@ export class ConfigController extends AccessControlEnumerable {
      * @public
      * 
     **/
-    public async enableFreeContractDeployment({ runChecks }: IDefault) : Promise<ContractReceipt> {
-        assert(this.signer, "Contract: Does not have a Signer");
-        if (runChecks) await this.fcdChecks({ isEnable: true });
+    public async enableFreeContractDeployment(params?: IDefault) : Promise<ContractReceipt> {
+        this.checkSigner();
+        if (params?.runChecks) await this.fcdChecks({ isEnable: true });
 
         try {
             return await this.contract.enableFreeContractDeployment();
@@ -165,9 +168,9 @@ export class ConfigController extends AccessControlEnumerable {
      * @public
      * 
     **/
-    public async disableFreeContractDeployment({ runChecks }: IDefault) : Promise<ContractReceipt> {
-        assert(this.signer, "Contract: Does not have a Signer");
-        if (runChecks) await this.fcdChecks({ isEnable: false });
+    public async disableFreeContractDeployment(params?: IDefault) : Promise<ContractReceipt> {
+        this.checkSigner();
+        if (params?.runChecks) await this.fcdChecks({ isEnable: false });
 
         try {
             return await this.contract.disableFreeContractDeployment();
@@ -183,7 +186,7 @@ export class ConfigController extends AccessControlEnumerable {
      * @public
     **/
     public async setVersion(params: IVersion) : Promise<ContractReceipt> {
-        assert(this.signer, "Contract: Does not have a Signer");
+        this.checkSigner();
         if (params.runChecks) {
             const hasDefaultAdminRole: boolean = await this.hasRole({ role: this.DEFAULT_ADMIN_ROLE, account: this.signer.address });
             assert(hasDefaultAdminRole, "ConfigController: Signer Does not have DEFAULT_ADMIN_ROLE");
@@ -204,9 +207,14 @@ export class ConfigController extends AccessControlEnumerable {
      * 
      */
     private async mtmChecks({ isEnable }: { isEnable: boolean }) : Promise<void> {
-        const hasRole: boolean = await this.hasRole({ role: this.MTM_ADMIN_ROLE, account: this.signer.address });
-        assert(hasRole, "ConfigController: Does Not have MTM_ADMIN_ROLE");
+        const signer = this.contract.signer;
+        const address = await signer.getAddress();
+        const hasRole: boolean = await this.hasRole({ role: this.MTM_ADMIN_ROLE, account: address });
+        console.log("MTM HAS ROLE: ", hasRole);
+        assert(hasRole, "ConfigController: Does Not have MTM_ADMIN_ROLE")
         const isMTMEnabled: boolean = await this.isMTMEnabled();
+        console.log("MTM Enable: ", isEnable);
+        console.log("Status: ", isMTMEnabled);
         assert(isEnable !== isMTMEnabled, isEnable ? "MTM Already Enabled" : "MTM Already Disabled");
     }
 

@@ -24,13 +24,14 @@ export class BaseContract {
 
     public contract: Contract;
     protected signer: Wallet | undefined;
+    protected hasSigner: boolean = false;
 
     constructor(params: IContractParams) {
         let provider: providers.Provider | Wallet;
         if (params.signer) {
             this.signer = params.signer;
             provider = params.signer;
-            
+            this.hasSigner = params.signer._isSigner;
         } else if (params.wsUrl) {
             assert(params.wsUrl.includes(("ws")), "Invalid Websocket Url");
             provider = new providers.WebSocketProvider(params.wsUrl);     
@@ -45,8 +46,8 @@ export class BaseContract {
         );
     }
 
-    public isWriteableProvider() : void {
-        assert(this.signer, "Provider cannot write");
+    public checkSigner() : void {
+        assert(this.hasSigner, "Contract: Not a valid Signer");
     }
     
     private getEvents() : string[] {
@@ -63,5 +64,10 @@ export class BaseContract {
         });
 
         return nameOnly ? names : funcs;
+    }
+
+    public setSigner({ signer }: { signer: Wallet }) {
+        this.signer = signer;
+        this.hasSigner = signer._isSigner;
     }
 }
