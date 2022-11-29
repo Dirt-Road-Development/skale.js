@@ -29,5 +29,6 @@
   "bugs": {
     "url": "https://github.com/Dirt-Road-Development/skale.js/issues"
   },
-  "homepage": "https://github.com/Dirt-Road-Development/skale.js#readme"
+  "homepage": "https://github.com/Dirt-Road-Development/skale.js#readme",
+  "gitHead": "515548f5779ad534a58527e21c0a0f0caca21872"
 }
