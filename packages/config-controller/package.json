@@ -1,6 +1,6 @@
 {
   "name": "@skaleproject/config-controller",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Config Controller Abstractions",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/Dirt-Road-Development/skale.js#readme",
   "dependencies": {
-    "@skaleproject/constants": "*",
-    "@skaleproject/utils": "*",
+    "@skaleproject/constants": "^0.0.1",
+    "@skaleproject/utils": "^0.0.1",
     "ethers": "^5.7.2"
   }
 }
