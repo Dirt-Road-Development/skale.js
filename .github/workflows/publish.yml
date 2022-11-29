@@ -2,9 +2,9 @@ name: Publish
 on:
   pull_request:
     # types: [closed]
-    branches:
-      - development
-      - main
+    # branches:
+    #   - development
+    #   - main
 
 jobs:
   publish:
