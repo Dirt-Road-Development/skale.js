@@ -1,6 +1,6 @@
 import { Addresses } from "@skaleproject/constants/lib/addresses";
 import ConfigControllerABI from "./abi.json";
-import { IInitParams } from "@skaleproject/utils/lib/contract";
+import { IInitParams } from "@skaleproject/utils/lib/contracts";
 import { ContractReceipt, utils } from "ethers";
 import { AccessControlEnumerable } from "@skaleproject/utils/lib/contracts";
 import { assert } from "console";
