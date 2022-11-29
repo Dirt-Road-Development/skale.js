@@ -9,8 +9,9 @@
   ],
   "scripts": {
     "build": "tsc --build ./tsconfig.json",
-    "dev": "nodemon --watch \"./src/**/*.*\" --exec npm run build",
-    "test": "jest --watchAll"
+    "build:watch": "nodemon --watch \"./src/**/*.*\" --exec npm run build",
+    "test": "jest --testTimeout=25000",
+    "test:watch": "jest --watchAll --testTimeout=25000"
   },
   "repository": {
     "directory": "packages/utils",
