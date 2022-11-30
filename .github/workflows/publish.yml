@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - stable
-
+      - feature/publish-automation
 jobs:
   publish:
     # if: github.event.pull_request.merged == true
