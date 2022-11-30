@@ -57,4 +57,4 @@ jobs:
           npx lerna version patch --conventional-commits --conventional-prerelease --preid alpha --yes
         fi
 
-        npx lerna publish -y --registry https://registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
+        npx lerna publish -y --registry https://registry.npmjs.org/:_authToken=${{NODE_AUTH_TOKEN}}
