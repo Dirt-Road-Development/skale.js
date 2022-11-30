@@ -1,6 +1,6 @@
 import { Addresses } from "@skaleproject/constants/lib/addresses";
 import EtherbaseABI from "./abi.json";
-import { Contract } from "@skaleproject/utils/lib/index";
+import { BaseContract, IInitParams } from "@skaleproject/utils/lib/contract";
 import { BigNumber, utils } from "ethers";
 import assert from "assert";
 import {
@@ -8,9 +8,8 @@ import {
     IRetrieveParams,
     IPartiallyRetrieveParams
 } from "./interfaces";
-import { IInitParams } from "@skaleproject/utils/lib/contracts/base_contract";
 
-export class Etherbase extends Contract.AccessControlEnumerable {
+export class Etherbase extends BaseContract {
 
     public ETHER_MANAGER_ROLE: string = utils.id("ETHER_MANAGER_ROLE");
 
@@ -24,7 +23,7 @@ export class Etherbase extends Contract.AccessControlEnumerable {
      
     public async retrieve(params: IRetrieveParams) {
         /// TODO -> Assert Change Contract to Constant via Lib after NPM Push
-        assert(this.signer, "Contract: Does not have a Signer");
+        assert(this.hasSigner, "Contract: Does not have a Signer");
         if (params.runChecks === true) {
             await this.onlyEtherManagerChecks();
         }
@@ -38,7 +37,7 @@ export class Etherbase extends Contract.AccessControlEnumerable {
 
     public async partiallyRetrieve(params: IPartiallyRetrieveParams) {
         /// TODO -> Assert Change Contract to Constant via Lib after NPM Push
-        assert(this.signer, "Contract: Does not have a Signer");
+        assert(this.hasSigner, "Contract: Does not have a Signer");
         if (params.runChecks === true) {
             await this.fullCheck({ ...params });
             await this.onlyEtherManagerChecks();

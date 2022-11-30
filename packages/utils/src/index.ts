@@ -9,8 +9,8 @@
 
 import * as Role from "./role";
 import * as Chain from "./chain";
+import * as Contract from "./contract"
 import * as Provider from "./provider"
-import * as Contract from "./contracts";
 
 const Utils = {
     ...Chain,
@@ -26,5 +26,3 @@ export {
     Role,
     Utils,
 }
-
-export * from "./contracts";

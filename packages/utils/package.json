@@ -1,6 +1,6 @@
 {
   "name": "@skaleproject/utils",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -9,9 +9,8 @@
   ],
   "scripts": {
     "build": "tsc --build ./tsconfig.json",
-    "build:watch": "nodemon --watch \"./src/**/*.*\" --exec npm run build",
-    "test": "jest --testTimeout=25000",
-    "test:watch": "jest --watchAll --testTimeout=25000"
+    "dev": "nodemon --watch \"./src/**/*.*\" --exec npm run build",
+    "test": "jest --watchAll"
   },
   "repository": {
     "directory": "packages/utils",
@@ -31,8 +30,7 @@
     "ts-jest": "^29.0.3"
   },
   "dependencies": {
-    "@skaleproject/constants": "^0.0.1",
+    "@skaleproject/constants": "^0.1.0",
     "ethers": "^5.7.2"
-  },
-  "gitHead": "515548f5779ad534a58527e21c0a0f0caca21872"
+  }
 }

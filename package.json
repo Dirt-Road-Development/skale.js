@@ -1,5 +1,5 @@
 {
-  "name": "@dirtroad/skale",
+  "name": "@skaleproject/skale.js",
   "common": {
     "funding": [
       {
@@ -17,11 +17,11 @@
   "description": "The monorepo package for SKALE Netowrk Abstractions",
   "main": "index.js",
   "scripts": {
-    "build": "npx lerna run build",
+    "build": "tsc --build ./tsconfig.package.json",
     "dev": "nodemon --watch \"./packages/**/*.*\" --exec npm run build",
     "publish": "npm publish --workspaces --access public",
     "version": "auto-changelog -p && git add CHANGELOG.md",
-    "test": "jest --testTimeout=25000 packages/*",
+    "test": "jest --testTimeout=15000 packages/*",
     "test:coverage": "make-coverage-badge"
   },
   "author": "Sawyer Cutler",
@@ -29,7 +29,6 @@
   "devDependencies": {
     "@types/node": "^18.11.9",
     "auto-changelog": "^2.4.0",
-    "lerna": "^6.0.3",
     "nodemon": "^2.0.20",
     "ts-node": "^10.8.0",
     "tsc-watch": "^5.0.3",
