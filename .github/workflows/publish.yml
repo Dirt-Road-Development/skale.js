@@ -52,6 +52,11 @@ jobs:
         git config user.name "${{ github.actor }}"
         git config user.email "${{ github.actor}}@users.noreply.github.com"
     
+    - name: Set version and branch
+      run: |
+        export BRANCH=${GITHUB_REF##*/}
+        echo "Branch: $BRANCH"
+        echo "BRANCH=$BRANCH" >> $GITHUB_ENV
     - name: "Version"
       run: |
         if [[ "$BRANCH" == "main" ]]; then
