@@ -1,6 +1,12 @@
 name: Publish Packages
-on: [pull_request]
-  types: [closed]
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main 
+      - development 
+      - beta
+      - stable
 
 jobs:
   publish:
