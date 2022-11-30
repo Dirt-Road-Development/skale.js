@@ -19,11 +19,9 @@ jobs:
 
     steps:
 
-    - name: Checkout Branch
-      run: git checkout ${GITHUB_REF##*/}
-
     - uses: actions/checkout@v2
       with:
+        ref: ${{ github.ref }}
         fetch-depth: "0"
         token: ${{ secrets.GITHUB_TOKEN }} # this token is available by default
 
