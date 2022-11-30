@@ -20,7 +20,7 @@ jobs:
     steps:
 
     - name: Checkout Branch
-    - run: git checkout ${GITHUB_REF##*/}
+      run: git checkout ${GITHUB_REF##*/}
 
     - uses: actions/checkout@v2
       with:
