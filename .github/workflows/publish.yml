@@ -1,14 +1,9 @@
 name: Publish Packages
 on:
   pull_request:
-    # types: [closed]
-    branches:
-      - main
-      - stable
-      - feature/publish-automation
+    types: [closed]
 jobs:
   publish:
-    # if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -50,6 +45,17 @@ jobs:
         git config user.name "${{ github.actor }}"
         git config user.email "${{ github.actor}}@users.noreply.github.com"
     
+    - name: "Version"
+      run: |
+        if [[ "$BRANCH" == "main" ]]; then
+          npm run version:major
+        else if [[ "$BRANCH" == "beta" ]]; then
+          npm run version:minor
+        else if [[ "$BRANCH" == "development" ]]; then
+          npm run version:patch
+        else
+          npm run version:prerelease
+
     - name: "Publish"
       run: |
         npm run publish
