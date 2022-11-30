@@ -40,7 +40,6 @@
     "typescript": "^4.9.3"
   },
   "workspaces": [
-    "packages/*",
     "./packages/*",
     "packages/**"
   ],
