@@ -1,6 +1,6 @@
 {
   "name": "@skaleproject/utils",
-  "version": "0.0.1",
+  "version": "0.0.2-0",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -31,7 +31,7 @@
     "ts-jest": "^29.0.3"
   },
   "dependencies": {
-    "@skaleproject/constants": "^0.0.1",
+    "@skaleproject/constants": "*",
     "ethers": "^5.7.2"
   },
   "gitHead": "515548f5779ad534a58527e21c0a0f0caca21872"
