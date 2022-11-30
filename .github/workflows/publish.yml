@@ -18,6 +18,10 @@ jobs:
         node-version: [16.x]
 
     steps:
+
+    - name: Checkout Branch
+    - run: git checkout ${GITHUB_REF##*/}
+
     - uses: actions/checkout@v2
       with:
         fetch-depth: "0"
