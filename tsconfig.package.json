@@ -18,6 +18,9 @@
             "path": "./packages/etherbase"
         },
         {
+            "path": "./packages/context"
+        },
+        {
             "path": "./packages/config-controller"
         },
         {
