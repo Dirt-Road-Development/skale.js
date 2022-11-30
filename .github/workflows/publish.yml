@@ -52,4 +52,4 @@ jobs:
     
     - name: "Publish"
       run: |
-        lerna publish --yes
+        npm run publish
