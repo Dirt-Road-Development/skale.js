@@ -1,10 +1,16 @@
 name: Publish Packages
-on: [pull_request]
-  types: [closed]
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main 
+      - development 
+      - beta
+      - stable
 
 jobs:
   publish:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -56,7 +62,7 @@ jobs:
           npm run version:patch
         else
           npm run version:prerelease
-
+        fi
     - name: "Publish"
       run: |
         npm run publish
