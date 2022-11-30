@@ -1,9 +1,10 @@
 name: Publish Packages
 on:
   pull_request:
-    # types: [closed]
-    # branches:
-    #   - development
+    types: [closed]
+    branches:
+      - main
+      - stable
 
 jobs:
   publish:
