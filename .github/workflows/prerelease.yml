@@ -1,15 +1,7 @@
 name: Publish Packages
-on:
-  pull_request:
-    types: [closed]
-    branches:
-      - main 
-      - development 
-      - beta
-      - stable
+on: [pull_request]
 jobs:
   publish:
-    if: github.event.pull_request.merged
     runs-on: ubuntu-latest
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -47,24 +39,9 @@ jobs:
         git config user.name "${{ github.actor }}"
         git config user.email "${{ github.actor}}@users.noreply.github.com"
     
-    - name: Set version and branch
-      run: |
-        export BRANCH=${GITHUB_REF##*/}
-        echo "Branch: $BRANCH"
-        echo "BRANCH=$BRANCH" >> $GITHUB_ENV
-    
-    - name: 'Major Version'
-      if: github.ref_name == 'main'
-      run: npm run version:major
+    - name: Prerelease Tag
+      run: npm run version:prerelease
 
-    - name: 'Minor Version'
-      if: github.ref_name == 'beta'
-      run: npm run version:minor
-      
-    - name: Bump Version
-      if: github.ref_name == 'development'
-      run: npm run version:patch
-          
     - name: Publish
       run: |
         npm run publish
