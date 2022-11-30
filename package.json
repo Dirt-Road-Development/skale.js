@@ -20,6 +20,7 @@
     "build": "npx lerna run build",
     "dev": "nodemon --watch \"./packages/**/*.*\" --exec npm run build",
     "publish": "npm publish --workspaces --access public",
+    "publish:lerna": "npx lerna publish -y --registry https://registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}",
     "version": "auto-changelog -p && git add CHANGELOG.md",
     "test": "jest --testTimeout=25000 packages/*",
     "test:coverage": "make-coverage-badge"
