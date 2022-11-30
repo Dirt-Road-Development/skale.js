@@ -1,6 +1,6 @@
 {
   "name": "@skaleproject/etherbase",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -31,8 +31,9 @@
   },
   "homepage": "https://github.com/Dirt-Road-Development/skale.js#readme",
   "dependencies": {
-    "@skaleproject/constants": "^0.1.1",
-    "@skaleproject/utils": "../utils",
+    "@skaleproject/constants": "^0.0.1",
+    "@skaleproject/utils": "^0.0.1",
     "ethers": "^5.7.2"
-  }
+  },
+  "gitHead": "515548f5779ad534a58527e21c0a0f0caca21872"
 }

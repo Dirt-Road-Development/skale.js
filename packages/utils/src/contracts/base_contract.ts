@@ -9,7 +9,7 @@ export interface IBaseContractParams {
 export interface IParams {
     rpcUrl: string;
     wsUrl?: string;
-    signer?: providers.Web3Provider | Wallet;
+    signer?: Wallet;
 }
 
 
@@ -22,21 +22,20 @@ export interface IContractParams extends IParams, IBaseContractParams {}
     
 export class BaseContract {
 
-    protected hasSigner: boolean;
     public contract: Contract;
+    protected signer: Wallet | undefined;
+    protected hasSigner: boolean = false;
 
     constructor(params: IContractParams) {
         let provider: providers.Provider | Wallet;
-
         if (params.signer) {
-            this.hasSigner = true;
+            this.signer = params.signer;
             provider = params.signer;
+            this.hasSigner = params.signer._isSigner;
         } else if (params.wsUrl) {
             assert(params.wsUrl.includes(("ws")), "Invalid Websocket Url");
-            this.hasSigner = false;
             provider = new providers.WebSocketProvider(params.wsUrl);     
         } else {
-            this.hasSigner = false;
             provider = new providers.JsonRpcProvider(params.rpcUrl);
         }
         
@@ -47,8 +46,8 @@ export class BaseContract {
         );
     }
 
-    public isWriteableProvider() : void {
-        assert(this.hasSigner, "Provider cannot write");
+    public checkSigner() : void {
+        assert(this.hasSigner, "Contract: Not a valid Signer");
     }
     
     private getEvents() : string[] {
@@ -65,5 +64,10 @@ export class BaseContract {
         });
 
         return nameOnly ? names : funcs;
+    }
+
+    public setSigner({ signer }: { signer: Wallet }) {
+        this.signer = signer;
+        this.hasSigner = signer._isSigner;
     }
 }

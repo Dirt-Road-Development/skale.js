@@ -1,4 +1,4 @@
-Skale.js Project
+skale.js | The SKALE Network SDK
 ==================
 [![Code Coverage](https://github.com/Dirt-Road-Development/skale.js/actions/workflows/coverage.yml/badge.svg?branch=main)](https://github.com/Dirt-Road-Development/skale.js/actions/workflows/coverage.yml)
 [![npm (tag)](https://img.shields.io/npm/v/@dirtroad/skale)](https://www.npmjs.com/package/@dirtroad/skale)
@@ -22,6 +22,12 @@ Currently the core team building and supporting the SKALE Network offers the fol
 - [Filestorage](https://github.com/skalenetwork/filestorage.js)
 - [IMA](https://github.com/skalenetwork/ima-js)
 - [Metaport](https://github.com/skalenetwork/metaport)
+
+Workflows
+----------
+
+- Coverage -> Code Coverage Badge
+- Publish -> Publish Packages and Auto-Bump
 
 License
 ----------

@@ -1,7 +1,7 @@
 {
   "author": "Sawyer Cutler <sawyer@dirtroad.dev>",
   "dependencies": {
-    "@skaleproject/constants": "../constants"
+    "@skaleproject/constants": "^0.0.1"
   },
   "files": [
     "lib/*"
@@ -20,5 +20,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "sideEffects": false,
-  "version": "0.1.0"
+  "version": "0.0.1",
+  "gitHead": "515548f5779ad534a58527e21c0a0f0caca21872"
 }
