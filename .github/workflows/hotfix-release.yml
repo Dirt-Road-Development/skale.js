@@ -1,7 +1,12 @@
-name: Publish Packages
-on: [pull_request]
+name: Hotfix Release 
+on:
+  pull_request:
+    types: [closed, labeled]
+    branches:
+      - main 
 jobs:
   publish:
+    if: github.event.pull_request.merged && ${{ github.event.label.name == 'bug' }}
     runs-on: ubuntu-latest
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -39,9 +44,15 @@ jobs:
         git config user.name "${{ github.actor }}"
         git config user.email "${{ github.actor}}@users.noreply.github.com"
     
-    - name: Prerelease Tag
-      run: npm run version:prerelease
-
+    - name: Set version and branch
+      run: |
+        export BRANCH=${GITHUB_REF##*/}
+        echo "Branch: $BRANCH"
+        echo "BRANCH=$BRANCH" >> $GITHUB_ENV
+      
+    - name: Bump Version
+      run: npm run version:patch
+          
     - name: Publish
       run: |
         npm run publish
