@@ -45,4 +45,4 @@ jobs:
 
     - name: Publish
       run: |
-        npm publish --workspaces --acess public --tag alpha
+        npm publish --workspaces --access public --tag alpha
