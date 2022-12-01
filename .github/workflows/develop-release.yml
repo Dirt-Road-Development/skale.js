@@ -3,6 +3,7 @@ on: [pull_request]
 jobs:
   publish:
     runs-on: ubuntu-latest
+    if: "!startsWith(github.event.head_commit.message, '[OG:]')"
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     strategy:
