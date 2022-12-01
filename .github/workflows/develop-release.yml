@@ -38,10 +38,8 @@ jobs:
       run: |
         git config user.name "${{ github.actor }}"
         git config user.email "${{ github.actor}}@users.noreply.github.com"
-    
-    - name: Prerelease Tag
-      run: npm run version:prerelease
 
     - name: Publish
       run: |
+        npm run version:prerelease
         npm publish --workspaces --tag alpha
