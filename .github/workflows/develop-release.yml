@@ -42,4 +42,4 @@ jobs:
     - name: Publish
       run: |
         npm run version:prerelease
-        npm publish --workspaces --tag alpha
+        npm publish --workspaces --tag alpha --allow-same-version
