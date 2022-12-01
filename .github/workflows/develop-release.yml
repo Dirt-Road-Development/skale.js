@@ -10,9 +10,9 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
-        ref: ${{ github.ref }}
+        ref: ${{ github.event.pull_request.head.ref }}
         fetch-depth: "0"
         token: ${{ secrets.GITHUB_TOKEN }} # this token is available by default
     - name: Set up Node.js ${{ matrix.node-version }}
@@ -44,4 +44,5 @@ jobs:
       run: |
         npm run version:prerelease
         npm publish --workspaces --access public --tag alpha --allow-same-version
-        git push origin HEAD:"${{ github.ref }}"
+        git add docs
+        git push origin HEAD:"${{ github.event.pull_request.head.ref }}"
