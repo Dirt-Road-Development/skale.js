@@ -1,6 +1,5 @@
 name: Prerelease Packages
 on: [pull_request]
-
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -45,4 +44,4 @@ jobs:
 
     - name: Publish
       run: |
-        npm publish --workspaces --access public --tag alpha
+        npm publish --workspaces --tag alpha
