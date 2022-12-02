@@ -15,13 +15,16 @@
             "path": "./packages/utils"
         },
         {
-            "path": "./packages/etherbase"
-        },
-        {
             "path": "./packages/context"
         },
         {
             "path": "./packages/config-controller"
+        },
+        {
+            "path": "./packages/etherbase"
+        },
+        {
+            "path": "./packages/marionette"
         },
         {
             "path": "./packages/skale.js"
