@@ -8,9 +8,7 @@ npx lerna link
 
 npm run build
 
-npx lerna version prerelease --since HEAD~1
-
-npm run publish
+npx lerna publish prerelease --since HEAD~1 --no-git-reset -y
 
 git add .
 git commit -am "Updated Pre-release Version"
