@@ -1,6 +1,6 @@
 {
   "name": "@skaleproject/context",
-  "version": "0.0.2-3",
+  "version": "0.0.2-4",
   "description": "SKALE Network Predeployed Context for Chain Information",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
