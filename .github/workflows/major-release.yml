@@ -1,15 +1,12 @@
-name: Publish Packages
+name: Major Release 
 on:
   pull_request:
-    types: [closed]
+    types: [closed, labeled]
     branches:
-      - main 
-      - development 
-      - beta
       - stable
 jobs:
   publish:
-    if: github.event.pull_request.merged
+    if: github.event.pull_request.merged && ${{ github.event.label.name == 'major' }}
     runs-on: ubuntu-latest
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -55,16 +52,6 @@ jobs:
     
     - name: 'Major Version'
       if: github.ref_name == 'main'
-      run: npm run version:major
-
-    - name: 'Minor Version'
-      if: github.ref_name == 'beta'
-      run: npm run version:minor
-      
-    - name: Bump Version
-      if: github.ref_name == 'development'
-      run: npm run version:patch
-          
-    - name: Publish
       run: |
+        npm run version:major
         npm run publish
