@@ -36,8 +36,7 @@ jobs:
 
     - name: Build Packages 
       run: |
-        npm nx affected:build --prod --with-deps --base=main
-
+        npm run build
     - name: Configure Git User
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
