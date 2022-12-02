@@ -6,7 +6,7 @@ on:
       - main 
 jobs:
   publish:
-    if: github.event.pull_request.merged && ${{ github.event.label.name == 'feature' }}
+    if:  github.event.action == 'closed' && github.event.pull_request.merged && ${{ github.event.label.name == 'feature' }}
     runs-on: ubuntu-latest
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
