@@ -1,9 +1,9 @@
 import { Addresses } from "@skaleproject/constants/lib/addresses";
-import { ethers, Wallet } from "ethers";
+import { BigNumber, ethers, utils, Wallet } from "ethers";
 import { Marionette } from "../src";
 
 const useMarionette = async({ useSigner }: { useSigner: boolean }) => {
-    const rng = Wallet.createRandom().connect(new ethers.providers.JsonRpcProvider("https://staging-v2.skalenodes.com/v1/fancy-rasalhague"));
+    const rng = Wallet.createRandom().connect(new ethers.providers.JsonRpcProvider("https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"));
 
     let marionette: Marionette;
 
@@ -21,19 +21,66 @@ const useMarionette = async({ useSigner }: { useSigner: boolean }) => {
     return { marionette, rng };
 }
 
-describe("postMessage()", () => {
-    test("No Signer", async() => {})
-    test("Has Signer - IMA Role Fails", async() => {})
-})
 describe("execute()", () => {
-    test("No Signer", async() => {})
-    test("Has Signer - No Puppeteer Role", async() => {})
+    test("No Signer", async() => {
+        const { marionette } = await useMarionette({ useSigner: false });
+        await expect(
+            marionette.execute({
+                target: Addresses.ZERO_ADDRESS,
+                data: ""
+            })
+        ).rejects.toThrow("Contract: Not a valid Signer");
+
+    })
+    test("Has Signer - No Gas", async() => {
+        const { marionette } = await useMarionette({ useSigner: true });
+        await expect(
+            marionette.execute({
+                target: Addresses.ZERO_ADDRESS,
+                data: utils.hexlify(1)
+            })
+        ).rejects.toThrow()
+    })
 })
 describe("sendSFuel()", () => {
-    test("No Signer", async() => {})
-    test("Has Signer - No Puppeteer Role", async() => {})
+    test("No Signer", async() => {
+        const { marionette } = await useMarionette({ useSigner: false });
+        await expect(
+            marionette.sendSFuel({
+                target: Addresses.ZERO_ADDRESS,
+                value: BigNumber.from(1)
+            })
+        ).rejects.toThrow("Contract: Not a valid Signer");
+
+    })
+    test("Has Signer - No Gas Role", async() => {
+        const { marionette } = await useMarionette({ useSigner: true });
+        await expect(
+            marionette.sendSFuel({
+                target: Addresses.ZERO_ADDRESS,
+                value: BigNumber.from(1)
+            })
+        ).rejects.toThrow()
+    })
 })
 describe("encodeFunctionCall()", () => {
-    test("No Signer", async() => {})
-    test("Has Signer - NULL, 0x0, 0x0", async() => {})
+    test("No Signer", async() => {
+        const { marionette } = await useMarionette({ useSigner: false });
+        await expect(
+            marionette.encodeFunctionCall({
+                target: Addresses.ZERO_ADDRESS,
+                data: utils.hexlify(1),
+                value: BigNumber.from(0)
+            })
+        ).rejects.toThrow();
+    })
+    // test("Has Signer - No Gas Role", async() => {
+    //     const { marionette } = await useMarionette({ useSigner: true });
+    //     await expect(
+    //         marionette.sendSFuel({
+    //             target: Addresses.ZERO_ADDRESS,
+    //             value: BigNumber.from(1)
+    //         })
+    //     ).rejects.toThrow()
+    // })
 })
