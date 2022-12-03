@@ -15,6 +15,9 @@
             "path": "./packages/utils"
         },
         {
+            "path": "./packages/multsig-wallet"
+        },
+        {
             "path": "./packages/context"
         },
         {
