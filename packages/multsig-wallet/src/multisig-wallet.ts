@@ -1,18 +1,17 @@
 import { Addresses } from "@skaleproject/constants/lib/addresses";
 import { IInitParams } from "@skaleproject/utils";
 import { BaseContract } from "@skaleproject/utils/lib/contracts/base_contract";
-import { assert } from "console";
-import { BigNumber, ContractReceipt } from "ethers";
+import { BigNumber, Contract, ContractReceipt, ethers } from "ethers";
 import { BytesLike, isAddress } from "ethers/lib/utils";
 import MultisigWalletABI from "./abi.json";
 import { MSGFunctionMap } from "./functions";
 import { IAddress, IBaseTransaction, ICreateNewWallet, IOnlyWalletFunction, IReplaceOwner, IRequirement, ITransaction, ITransactionCount, ITransactionId, ITransactionIds } from "./interfaces";
+import MultisigWalletBytecode from "./bytecode";
+import { AssertionError } from "assert";
 
-export class Marionette extends BaseContract {
+export class MultisigWallet extends BaseContract {
 
-    public static MAX_OWNER_COUNT: number = 50;
-
-
+    public static max_owner_count: number = 50;
 
     /**
      * 
@@ -28,17 +27,22 @@ export class Marionette extends BaseContract {
     }
     /**
      * 
-     * @param params 
+     * @param { ICreateNewWallet } params
      * @returns ContractReceipt
      */
-    public async createNewWallet(params: ICreateNewWallet) : Promise<ContractReceipt> {
+    public async createNewWallet(params: ICreateNewWallet) : Promise<Contract> {
         this.checkSigner();
-        await this.validRequirement(params);
-        return await this.contract.MultiSigWallet(params.owners, BigNumber.from(params.required));
+        this.validRequirement(params)
+        
+        const factory = new ethers.ContractFactory(MultisigWalletABI, MultisigWalletBytecode, this.signer);
+        const contractDeployment = await factory.deploy(params.owners, params.required);
+
+        return await contractDeployment.deployed();
     }
+
     public async addOwner(params: IAddress) : Promise<ContractReceipt> {
         this.checkSigner();
-        assert(isAddress(params.address), "MultisigWallet: Invalid Ethereum Address");
+        if (!isAddress(params.address)) throw new AssertionError({ message: "MultisigWallet: Invalid Ethereum Address" });
         return await this.submitTransaction({
             destination: this.contract.address,
             value: BigNumber.from(0),
@@ -51,7 +55,7 @@ export class Marionette extends BaseContract {
 
     public async removeOwner(params: IAddress) : Promise<ContractReceipt> {
         this.checkSigner();
-        assert(isAddress(params.address), "MultisigWallet: Invalid Ethereum Address");
+        if (!isAddress(params.address)) throw new AssertionError({ message: "MultisigWallet: Invalid Ethereum Address" });
         return await this.submitTransaction({
             destination: this.contract.address,
             value: BigNumber.from(0),
@@ -64,8 +68,8 @@ export class Marionette extends BaseContract {
 
     public async replaceOwner(params: IReplaceOwner) : Promise<ContractReceipt> {
         this.checkSigner();
-        assert(isAddress(params.owner), "MultisigWallet: Owner is Invalid Ethereum Address");
-        assert(isAddress(params.newOwner), "MultisigWallet: New Owner Invalid Ethereum Address");
+        if (!isAddress(params.owner)) throw new AssertionError({ message: "MultisigWallet: Owner is Invalid Ethereum Address" });
+        if (!isAddress(params.newOwner)) throw new AssertionError({ message: "MultisigWallet: New Owner Invalid Ethereum Address" });
         return await this.submitTransaction({
             destination: this.contract.address,
             value: BigNumber.from(0),
@@ -78,6 +82,7 @@ export class Marionette extends BaseContract {
 
     public async changeRequirement(params: IRequirement) : Promise<ContractReceipt> {
         this.checkSigner();
+        if (params.required === 0) throw new AssertionError({ message: "MultisigWallet: Must have at least one required signer" });
         return await this.submitTransaction({
             destination: this.contract.address,
             value: BigNumber.from(0),
@@ -88,12 +93,14 @@ export class Marionette extends BaseContract {
         })
     }
 
-    private async validRequirement(params: ICreateNewWallet) : Promise<void> {
+    private validRequirement(params: ICreateNewWallet) {
         const numberOwners: number = params.owners.length;
-        assert(numberOwners > 0, "Multisig Wallet: Requires at least 1 owner");
-        assert(params.required > 0, "Multisig Wallet: Requires at least 1 signer");
-        assert(numberOwners < 51, "Multisig Wallet: Must be less than 51 signers");
-        assert(params.required <= numberOwners, "Multisig Wallet: Signers must be less than required");
+        
+        if(numberOwners === 0) throw new AssertionError({ expected: true, message: "Multisig Wallet: Requires at least 1 owner" });
+        if(params.required === 0) throw new AssertionError({ expected: true, message: "Multisig Wallet: Requires at least 1 signer" });
+        if(numberOwners > 50) throw new AssertionError({ expected: true, message: "Multisig Wallet: Must be less than 51 signers" });
+        if(params.required > numberOwners) throw new AssertionError({ expected: true, message: "Multisig Wallet: Required Signatures must be less than or equal to number owners" });
+        
     }
 
     public async submitTransaction(params: IBaseTransaction) : Promise<ContractReceipt> {
@@ -134,11 +141,11 @@ export class Marionette extends BaseContract {
         return await this.contract.getTransactionCount(params.pending, params.executed);
     }
 
-    public async getOwners() : Promise<string> {
+    public async getOwners() : Promise<string[]> {
         return await this.contract.getOwners();
     }
 
-    public async getConfirmations(params: ITransactionId) : Promise<string> {
+    public async getConfirmations(params: ITransactionId) : Promise<string[]> {
         return await this.contract.getConfirmations(params.transactionId);
     }
 
@@ -151,7 +158,10 @@ export class Marionette extends BaseContract {
     }
 
     public async getTransaction(params: ITransactionId) : Promise<ITransaction> {
-        return await this.contract.transactions(params.transactionId);
+        const data = await this.contract.transactions(params.transactionId);
+        return {
+            ...data
+        } as ITransaction;
     }
 
     public async getRequired() : Promise<number> {
