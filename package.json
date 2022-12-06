@@ -26,7 +26,8 @@
     "publish": "npm publish --workspaces --access public",
     "version": "auto-changelog -p && git add CHANGELOG.md",
     "test": "jest --testTimeout=25000 packages/*",
-    "test:coverage": "make-coverage-badge"
+    "test:coverage": "make-coverage-badge",
+    "unpublish": "node ./scripts/unpublish/index.js"
   },
   "author": "Sawyer Cutler",
   "license": "MIT",
