@@ -1,3 +1,15 @@
+/**
+ * 
+ * @license MIT
+ * @copyright (c) 2022 Dirt Road Dev
+ * @package @skaleproject/marionette
+ * 
+ * @file contract.test.ts
+ * @author Sawyer Cutler
+ * 
+*/
+
+
 import { Addresses } from "@skaleproject/constants/lib/addresses";
 import { BigNumber, ethers, utils, Wallet } from "ethers";
 import { Marionette } from "../src";
@@ -74,13 +86,4 @@ describe("encodeFunctionCall()", () => {
             })
         ).rejects.toThrow();
     })
-    // test("Has Signer - No Gas Role", async() => {
-    //     const { marionette } = await useMarionette({ useSigner: true });
-    //     await expect(
-    //         marionette.sendSFuel({
-    //             target: Addresses.ZERO_ADDRESS,
-    //             value: BigNumber.from(1)
-    //         })
-    //     ).rejects.toThrow()
-    // })
 })
