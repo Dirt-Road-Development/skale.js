@@ -1,3 +1,14 @@
+/**
+ * 
+ * @license MIT
+ * @copyright (c) 2022 Dirt Road Dev
+ * @package @skaleproject/etherbase
+ * 
+ * @file contract.test.ts
+ * @author Sawyer Cutler
+ * 
+*/
+
 import {Addresses} from "@skaleproject/constants/lib/addresses";
 import { BigNumber, ethers } from "ethers";
 import { Etherbase } from "../src";
@@ -6,12 +17,12 @@ import { Etherbase } from "../src";
 describe("Etherbase Test Suite", () => {
     
     const signerFixture = async() => {
-        const provider = new ethers.providers.JsonRpcProvider("https://staging-v2.skalenodes.com/v1/fancy-rasalhague");
+        const provider = new ethers.providers.JsonRpcProvider("https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar");
         const rng = ethers.Wallet.createRandom().connect(provider)
         
         const etherbase = new Etherbase({
             signer: rng,
-            rpcUrl: "https://staging-v2.skalenodes.com/v1/fancy-rasalhague"
+            rpcUrl: "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"
         });
         
         return { etherbase, rng };
@@ -20,7 +31,7 @@ describe("Etherbase Test Suite", () => {
     const fixture = async() => {
         
         const etherbase = new Etherbase({
-            rpcUrl: "https://staging-v2.skalenodes.com/v1/fancy-rasalhague"
+            rpcUrl: "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"
         });
 
         return { etherbase };
@@ -93,10 +104,10 @@ describe("Etherbase Test Suite", () => {
             expect(await etherbase["isEtherManager"](Addresses.ZERO_ADDRESS)).resolves.toBeFalsy;
         });
 
-        test("private async onlyEtherManagerChecks()", async() => {
+        test("private async onlyEtherManagerCheck()", async() => {
             const { etherbase } = await signerFixture();
             
-            await expect(etherbase["onlyEtherManagerChecks"]()).rejects.toThrow("Etherbase: Not ETHER_MANAGER_ROLE");
+            await expect(etherbase["onlyEtherManagerCheck"]()).rejects.toThrow("Etherbase: Not ETHER_MANAGER_ROLE");
         });
     });
 });

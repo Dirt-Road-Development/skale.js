@@ -1,4 +1,4 @@
-/*
+/**
  * @license MIT
  * @copyright (c) 2022 Dirt Road Dev
  * @package @skaleproject/config-controller
@@ -32,10 +32,10 @@ export class ConfigController extends AccessControlEnumerable {
 
     /**
      * 
-     * Initizliatin of the Config Controller Contract
-     * This is a wrapper on the solidity smart contract 
+     * Initialization of the ConfigController Contract
+     * This is a wrapper of the solidity smart contract 
      * 
-     * @param {IInitParams} params - The core paraeters passed into the constructor
+     * @param {IInitParams} params - The core parameters passed into the constructor
      */
     constructor(params: IInitParams) {
         super({
