@@ -3,18 +3,18 @@ import { ethers, Wallet } from "ethers";
 import { ConfigController } from "../src";
 
 const useConfigController = async({ useSigner }: { useSigner: boolean }) => {
-    const rng = Wallet.createRandom().connect(new ethers.providers.JsonRpcProvider("https://staging-v2.skalenodes.com/v1/fancy-rasalhague"));
+    const rng = Wallet.createRandom().connect(new ethers.providers.JsonRpcProvider("https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"));
 
     let controller: ConfigController;
 
     if (useSigner) {
         controller = new ConfigController({
             signer: rng,
-            rpcUrl: "https://staging-v2.skalenodes.com/v1/fancy-rasalhague"
+            rpcUrl: "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"
         });    
     } else {
         controller = new ConfigController({
-            rpcUrl: "https://staging-v2.skalenodes.com/v1/fancy-rasalhague"
+            rpcUrl: "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"
         });  
     }
     
