@@ -12,7 +12,7 @@ import {
 } from "@skaleproject/constants";
 
 import {
-    ConfigController    
+    ConfigController
 } from "@skaleproject/config-controller";
 
 import {
