@@ -1,7 +1,13 @@
 {
   "author": "Sawyer Cutler <sawyer@dirtroad.dev>",
   "dependencies": {
-    "@skaleproject/constants": "*"
+    "@skaleproject/config-controller": "*",
+    "@skaleproject/constants": "*",
+    "@skaleproject/context": "*",
+    "@skaleproject/etherbase": "*",
+    "@skaleproject/marionette": "*",
+    "@skaleproject/multisig-wallet": "*",
+    "@skaleproject/utils": "*"
   },
   "files": [
     "lib/*"
@@ -20,6 +26,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "sideEffects": false,
-  "version": "0.0.2-5",
+  "version": "0.1.0",
   "gitHead": "515548f5779ad534a58527e21c0a0f0caca21872"
 }

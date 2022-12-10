@@ -1,3 +1,14 @@
+/**
+ * 
+ * @license MIT
+ * @copyright (c) 2022 Dirt Road Dev
+ * @package @skaleproject/context
+ * 
+ * @file contract.test.ts
+ * @author Sawyer Cutler
+ * 
+*/
+
 import { Addresses } from "@skaleproject/constants/lib/addresses";
 import { ethers, utils, Wallet } from "ethers";
 import { Context } from "../src";
