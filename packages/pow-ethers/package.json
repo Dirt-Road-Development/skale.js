@@ -1,5 +1,5 @@
 {
-  "name": "@skaleproject/pow",
+  "name": "@skaleproject/pow-ethers",
   "version": "0.1.0",
   "description": "",
   "main": "./lib/index.js",
@@ -14,7 +14,7 @@
     "test:watch": "jest --watchAll --testTimeout=25000"
   },
   "repository": {
-    "directory": "packages/pow",
+    "directory": "packages/pow-ethers",
     "type": "git",
     "url": "git+https://github.com/Dirt-Road-Development/skale.js.git"
   },
@@ -33,6 +33,7 @@
   "dependencies": {
     "@skaleproject/constants": "*",
     "bn.js": "^5.2.1",
+    "ethers": "^5.7.2",
     "web3-utils": "^1.8.1"
   },
   "gitHead": "515548f5779ad534a58527e21c0a0f0caca21872"

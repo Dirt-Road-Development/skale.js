@@ -30,6 +30,15 @@
             "path": "./packages/marionette"
         },
         {
+            "path": "./packages/pow"
+        },
+        {
+            "path": "./packages/pow-ethers"
+        },
+        {
+            "path": "./packages/pow-web3"
+        },
+        {
             "path": "./packages/skale.js"
         }
     ],
