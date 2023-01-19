@@ -2,7 +2,7 @@ name: Report a Bug
 description: Open an issue relating to a bug found in SKALE.js
 title: "Bug Title"
 labels: ["bug"]
-assigness:
+assignees:
   - thegreataxios
 body:
   - type: markdown
@@ -12,7 +12,7 @@ body:
 
         Thank you for taking the time to report a bug. This form is used to provide formatted information on a bug in the SKALE.js monopackage.
 
-      If you are **new to SKALE.js** or not sure if this is a bug, you can [start a discussion](https://github.com/Dirt-Road-Development/skale.js/discussions) before filing the bug.
+        If you are **new to SKALE.js** or not sure if this is a bug, you can [start a discussion](https://github.com/Dirt-Road-Development/skale.js/discussions) before filing the bug.
 
   - type: input
     id: version
