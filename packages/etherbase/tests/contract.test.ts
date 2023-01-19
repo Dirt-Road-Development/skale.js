@@ -51,7 +51,7 @@ describe("Etherbase Test Suite", () => {
 
         test("retrieve({ receiver, runChecks: true }) => Invalid Signer", async () => {
             const { etherbase } = await signerFixture();
-            await expect(etherbase.retrieve({ receiver: Addresses.ZERO_ADDRESS, runChecks: true })).rejects.toThrow("Etherbase: Not ETHER_MANAGER_ROLE");
+            await expect(etherbase.retrieve({ receiver: Addresses.General.ZERO_ADDRESS, runChecks: true })).rejects.toThrow("Etherbase: Not ETHER_MANAGER_ROLE");
         })
  
         test("retrieve({ receiver }) => Valid Signer", async () => {
@@ -64,7 +64,7 @@ describe("Etherbase Test Suite", () => {
         test("partiallyRetrieve({ receiver }) => Invalid Signer", async() => {
         
             const { etherbase } = await fixture();
-            await expect(etherbase.partiallyRetrieve({ receiver: Addresses.ZERO_ADDRESS, amount: BigNumber.from(10) })).rejects.toThrow("Contract: Does not have a Signer")
+            await expect(etherbase.partiallyRetrieve({ receiver: Addresses.General.ZERO_ADDRESS, amount: BigNumber.from(10) })).rejects.toThrow("Contract: Does not have a Signer")
         })
     
         test("Run Checks", async() => {
@@ -80,12 +80,12 @@ describe("Etherbase Test Suite", () => {
 
         test("partiallyRetrieve({ reciever, amount: Max, runChecks: true })", async() => {
             const { etherbase } = await signerFixture();
-            await expect(etherbase.partiallyRetrieve({ receiver: Addresses.ZERO_ADDRESS, amount: ethers.constants.MaxUint256, runChecks: true })).rejects.toThrow("Contract: Insufficient Funds to Retrieve");
+            await expect(etherbase.partiallyRetrieve({ receiver: Addresses.General.ZERO_ADDRESS, amount: ethers.constants.MaxUint256, runChecks: true })).rejects.toThrow("Contract: Insufficient Funds to Retrieve");
         })
         
         test("partiallyRetrieve({ reciever, amount: One, runChecks: true })", async() => {
             const { etherbase } = await signerFixture();
-            await expect(etherbase.partiallyRetrieve({ receiver: Addresses.ZERO_ADDRESS, amount: ethers.constants.One, runChecks: true })).rejects.toThrow("Etherbase: Not ETHER_MANAGER_ROLE");
+            await expect(etherbase.partiallyRetrieve({ receiver: Addresses.General.ZERO_ADDRESS, amount: ethers.constants.One, runChecks: true })).rejects.toThrow("Etherbase: Not ETHER_MANAGER_ROLE");
         })
         
 
@@ -96,12 +96,12 @@ describe("Etherbase Test Suite", () => {
         test("private async fullCheck(params)", async() => {
             const { etherbase } = await fixture();
             await expect(etherbase["fullCheck"]({ receiver: "", amount: BigNumber.from(0) })).rejects.toThrow("Contract: Invalid Ethereum Address Param");
-            await expect(etherbase["fullCheck"]({ receiver: Addresses.ZERO_ADDRESS, amount: ethers.constants.MaxUint256 })).rejects.toThrow("Contract: Insufficient Funds to Retrieve");
+            await expect(etherbase["fullCheck"]({ receiver: Addresses.General.ZERO_ADDRESS, amount: ethers.constants.MaxUint256 })).rejects.toThrow("Contract: Insufficient Funds to Retrieve");
         });
 
         test("private async isEtherManager()", async() => {
             const { etherbase } = await fixture();
-            expect(await etherbase["isEtherManager"](Addresses.ZERO_ADDRESS)).resolves.toBeFalsy;
+            expect(await etherbase["isEtherManager"](Addresses.General.ZERO_ADDRESS)).resolves.toBeFalsy;
         });
 
         test("private async onlyEtherManagerCheck()", async() => {
