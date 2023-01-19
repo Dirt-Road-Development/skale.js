@@ -7,18 +7,24 @@
  *
 **/
 
+import * as ABIs from "./abis";
+import * as IMA_ABIs from "./ima_abis";
 import * as Address from "./addresses";
 import * as Chains from "./chains";
 
 const Constants = {
+    ABIs,
     Address,
-    Chains
+    Chains,
+    IMA_ABIs
 }
 
 export {
+    ABIs,
     Address,
     Chains,
-    Constants
+    Constants,
+    IMA_ABIs,
 }
 
 export * as Assertions from "./assertions";

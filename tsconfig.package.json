@@ -30,6 +30,9 @@
             "path": "./packages/marionette"
         },
         {
+            "path": "./packages/ima"
+        },
+        {
             "path": "./packages/skale.js"
         }
     ],

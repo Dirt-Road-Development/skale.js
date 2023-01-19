@@ -1,7 +1,7 @@
 {
-  "name": "@skaleproject/context",
+  "name": "@skaleproject/ima",
   "version": "0.2.0",
-  "description": "SKALE Network Predeployed Context for Chain Information",
+  "description": "SKALE Interchain Messaging Agent Package",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "files": [
@@ -19,7 +19,7 @@
     "test:watch": "jest --watchAll --testTimeout=15000"
   },
   "repository": {
-    "directory": "packages/context",
+    "directory": "packages/ima",
     "type": "git",
     "url": "git+https://github.com/Dirt-Road-Development/skale.js.git"
   },

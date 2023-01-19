@@ -1,0 +1,5 @@
+/**
+ * SKALE Chain IMA Addresses
+ */
+
+export const TOKEN_MANAGER_ERC20_ADDRESS: string = "0xD2aAA00500000000000000000000000000000000";
