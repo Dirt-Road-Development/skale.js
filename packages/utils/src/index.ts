@@ -28,3 +28,4 @@ export {
 }
 
 export * from "./contracts";
+export * from "./tokenChecks";

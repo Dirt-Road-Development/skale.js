@@ -4,7 +4,7 @@ import { BigNumber, Contract, ethers, providers } from "ethers";
 import assert from "assert";
 import {TokenManagerERC20} from "@skaleproject/ima";
 
-export interface IParams {
+export interface ICheckTokenParams {
     address: `0x${string}`;
     chainName: "string";
     isMainnet: boolean;
@@ -41,7 +41,7 @@ const _handleDecimals = (decimals: number | BigNumber) => {
     return decimals;
 }
 
-export const isValidERC20 = async(params: IParams) : Promise<IValidERC20Response> => {
+export const isValidERC20 = async(params: ICheckTokenParams) : Promise<IValidERC20Response> => {
     let isVerified: boolean | null;
     const {
         address,
