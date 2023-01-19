@@ -11,11 +11,11 @@ const useMarionette = async({ useSigner }: { useSigner: boolean }) => {
     if (useSigner) {
         multisigWallet = new MultisigWallet({
             signer: rng,
-            rpcUrl: "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"
+            rpcUrl: "https://mainnet.skalenodes.com/v1/honorable-steel-rasalhague"
         });    
     } else {
         multisigWallet = new MultisigWallet({
-            rpcUrl: "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"
+            rpcUrl: "https://mainnet.skalenodes.com/v1/honorable-steel-rasalhague"
         });  
     }
     
