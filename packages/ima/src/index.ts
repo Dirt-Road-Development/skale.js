@@ -8,3 +8,4 @@
 */
 
 export * from "./schain/token_manager_erc20";
+export * from "./utils";

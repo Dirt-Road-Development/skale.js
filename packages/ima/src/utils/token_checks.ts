@@ -1,8 +1,9 @@
 import { ABIs } from "@skaleproject/constants";
-import { buildBlockScoutURL, buildRPCUrl } from "./chain";
+// import { buildBlockScoutURL, buildRPCUrl } from "@skaleproject/utils";
+import { Utils } from "@skaleproject/utils";
 import { BigNumber, Contract, ethers, providers } from "ethers";
 import assert from "assert";
-import {TokenManagerERC20} from "@skaleproject/ima";
+import {TokenManagerERC20} from "../schain/token_manager_erc20";
 
 export interface ICheckTokenParams {
     address: `0x${string}`;
@@ -50,7 +51,7 @@ export const isValidERC20 = async(params: ICheckTokenParams) : Promise<IValidERC
         checkExplorer 
     } = params;
 
-    const rpcUrl: string = buildRPCUrl(chainName, isMainnet);
+    const rpcUrl: string = Utils.buildRPCUrl(chainName, isMainnet);
     const provider = new providers.JsonRpcBatchProvider(rpcUrl);
     
     assert(ethers.utils.isAddress(address), "Invalid Ethereum Address");
@@ -81,7 +82,7 @@ export const isValidERC20 = async(params: ICheckTokenParams) : Promise<IValidERC
     if (checkExplorer) {
 
         /// Load ERC-20 Details From Explorer
-        const explorerUrl: string = buildBlockScoutURL(chainName, isMainnet) + "/api/";
+        const explorerUrl: string = Utils.buildBlockScoutURL(chainName, isMainnet) + "/api/";
         const tokenResponse = await fetch(explorerUrl + "?module=token&action=getToken&contractaddress=" + address);
         const tokenResponseJson: ITokenResponse = await tokenResponse.json();
 
