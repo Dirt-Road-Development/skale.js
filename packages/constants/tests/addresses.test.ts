@@ -3,7 +3,7 @@ import { Constants } from "../src";
 
 describe("Address Checks", () => {
     test("Zero Address Check", () => {
-        expect(Constants.Address.Addresses.ZERO_ADDRESS).toEqual("0x0000000000000000000000000000000000000000");
+        expect(Constants.Address.Addresses.General.ZERO_ADDRESS).toEqual("0x0000000000000000000000000000000000000000");
     })
     describe("Predeployed Addresses", () => {
         test("Context Address", () => {
