@@ -7,3 +7,6 @@
  *
  */
 
+import ProofOfWork from "./transaction";
+
+export default ProofOfWork;

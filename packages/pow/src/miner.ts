@@ -4,7 +4,6 @@ import * as crypto from "crypto";
 
 interface Params {
   difficulty?: BN;
-  rpcUrl: string;
 }
 
 export default class SkalePowMiner {

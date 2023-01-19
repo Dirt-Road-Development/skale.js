@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>~/skale/skale.js/packages/pow-ethers/package.json.html</title>
+<meta name="Generator" content="Vim/9.0">
+<meta name="plugin-version" content="vim8.1_v2">
+<meta name="syntax" content="json">
+<meta name="settings" content="number_lines,use_css,pre_wrap,no_foldcolumn,expand_tabs,line_ids,prevent_copy=,use_input_for_pc=fallback">
+<meta name="colorscheme" content="jellybeans">
+<style>
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #d7d7d7; background-color: #121212; }
+body { font-family: monospace; color: #d7d7d7; background-color: #121212; }
+* { font-size: 1em; }
+.Statement { color: #8787af; }
+.String { color: #87af5f; }
+.LineNr { color: #5f5f5f; background-color: #121212; padding-bottom: 1px; }
+.Special { color: #87af5f; }
+.Delimiter { color: #5f8787; }
+-->
+</style>
+
+<script>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span><span class="Delimiter">{</span>
+<span id="L2" class="LineNr"> 2 </span>  &quot;<span class="Statement">name</span>&quot;: &quot;<span class="String">@skaleproject/pow-ethers</span>&quot;,
+<span id="L3" class="LineNr"> 3 </span>  &quot;<span class="Statement">version</span>&quot;: &quot;<span class="String">0.1.0</span>&quot;,
+<span id="L4" class="LineNr"> 4 </span>  &quot;<span class="Statement">description</span>&quot;: &quot;&quot;,
+<span id="L5" class="LineNr"> 5 </span>  &quot;<span class="Statement">main</span>&quot;: &quot;<span class="String">./lib/index.js</span>&quot;,
+<span id="L6" class="LineNr"> 6 </span>  &quot;<span class="Statement">types</span>&quot;: &quot;<span class="String">./lib/index.d.ts</span>&quot;,
+<span id="L7" class="LineNr"> 7 </span>  &quot;<span class="Statement">files</span>&quot;: <span class="Delimiter">[</span>
+<span id="L8" class="LineNr"> 8 </span>    &quot;<span class="String">lib/*</span>&quot;
+<span id="L9" class="LineNr"> 9 </span>  <span class="Delimiter">]</span>,
+<span id="L10" class="LineNr">10 </span>  &quot;<span class="Statement">scripts</span>&quot;: <span class="Delimiter">{</span>
+<span id="L11" class="LineNr">11 </span>    &quot;<span class="Statement">build</span>&quot;: &quot;<span class="String">tsc --build ./tsconfig.json</span>&quot;,
+<span id="L12" class="LineNr">12 </span>    &quot;<span class="Statement">build:watch</span>&quot;: &quot;<span class="String">nodemon --watch </span><span class="Special">\&quot;</span><span class="String">./src/**/*.*</span><span class="Special">\&quot;</span><span class="String"> --exec npm run build</span>&quot;,
+<span id="L13" class="LineNr">13 </span>    &quot;<span class="Statement">test</span>&quot;: &quot;<span class="String">jest --testTimeout=25000</span>&quot;,
+<span id="L14" class="LineNr">14 </span>    &quot;<span class="Statement">test:watch</span>&quot;: &quot;<span class="String">jest --watchAll --testTimeout=25000</span>&quot;
+<span id="L15" class="LineNr">15 </span>  <span class="Delimiter">}</span>,
+<span id="L16" class="LineNr">16 </span>  &quot;<span class="Statement">repository</span>&quot;: <span class="Delimiter">{</span>
+<span id="L17" class="LineNr">17 </span>    &quot;<span class="Statement">directory</span>&quot;: &quot;<span class="String">packages/pow-ethers</span>&quot;,
+<span id="L18" class="LineNr">18 </span>    &quot;<span class="Statement">type</span>&quot;: &quot;<span class="String">git</span>&quot;,
+<span id="L19" class="LineNr">19 </span>    &quot;<span class="Statement">url</span>&quot;: &quot;<span class="String">git+<a href="https://github.com/Dirt-Road-Development/skale.js.git">https://github.com/Dirt-Road-Development/skale.js.git</a></span>&quot;
+<span id="L20" class="LineNr">20 </span>  <span class="Delimiter">}</span>,
+<span id="L21" class="LineNr">21 </span>  &quot;<span class="Statement">keywords</span>&quot;: <span class="Delimiter">[]</span>,
+<span id="L22" class="LineNr">22 </span>  &quot;<span class="Statement">author</span>&quot;: &quot;<span class="String">Sawyer Cutler &lt;sawyer@dirtroad.dev&gt;</span>&quot;,
+<span id="L23" class="LineNr">23 </span>  &quot;<span class="Statement">license</span>&quot;: &quot;<span class="String">MIT</span>&quot;,
+<span id="L24" class="LineNr">24 </span>  &quot;<span class="Statement">bugs</span>&quot;: <span class="Delimiter">{</span>
+<span id="L25" class="LineNr">25 </span>    &quot;<span class="Statement">url</span>&quot;: &quot;<span class="String"><a href="https://github.com/Dirt-Road-Development/skale.js/issues">https://github.com/Dirt-Road-Development/skale.js/issues</a></span>&quot;
+<span id="L26" class="LineNr">26 </span>  <span class="Delimiter">}</span>,
+<span id="L27" class="LineNr">27 </span>  &quot;<span class="Statement">homepage</span>&quot;: &quot;<span class="String"><a href="https://github.com/Dirt-Road-Development/skale.js#readme">https://github.com/Dirt-Road-Development/skale.js#readme</a></span>&quot;,
+<span id="L28" class="LineNr">28 </span>  &quot;<span class="Statement">devDependencies</span>&quot;: <span class="Delimiter">{</span>
+<span id="L29" class="LineNr">29 </span>    &quot;<span class="Statement">@types/jest</span>&quot;: &quot;<span class="String">^29.2.3</span>&quot;,
+<span id="L30" class="LineNr">30 </span>    &quot;<span class="Statement">jest</span>&quot;: &quot;<span class="String">^29.3.1</span>&quot;,
+<span id="L31" class="LineNr">31 </span>    &quot;<span class="Statement">ts-jest</span>&quot;: &quot;<span class="String">^29.0.3</span>&quot;
+<span id="L32" class="LineNr">32 </span>  <span class="Delimiter">}</span>,
+<span id="L33" class="LineNr">33 </span>  &quot;<span class="Statement">dependencies</span>&quot;: <span class="Delimiter">{</span>
+<span id="L34" class="LineNr">34 </span>    &quot;<span class="Statement">@skaleproject/constants</span>&quot;: &quot;<span class="String">*</span>&quot;,
+<span id="L35" class="LineNr">35 </span>    &quot;<span class="Statement">@skaleproject/pow</span>&quot;: &quot;<span class="String">*</span>&quot;,
+<span id="L36" class="LineNr">36 </span>    &quot;<span class="Statement">bn.js</span>&quot;: &quot;<span class="String">^5.2.1</span>&quot;,
+<span id="L37" class="LineNr">37 </span>    &quot;<span class="Statement">ethers</span>&quot;: &quot;<span class="String">^5.7.2</span>&quot;
+<span id="L38" class="LineNr">38 </span>  <span class="Delimiter">}</span>,
+<span id="L39" class="LineNr">39 </span>  &quot;<span class="Statement">gitHead</span>&quot;: &quot;<span class="String">515548f5779ad534a58527e21c0a0f0caca21872</span>&quot;
+<span id="L40" class="LineNr">40 </span><span class="Delimiter">}</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

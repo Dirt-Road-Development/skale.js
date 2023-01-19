@@ -7,3 +7,6 @@
  *
  */
 
+import SkalePowMiner from "./miner";
+
+export default SkalePowMiner;
