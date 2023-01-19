@@ -38,7 +38,7 @@ describe("execute()", () => {
         const { marionette } = await useMarionette({ useSigner: false });
         await expect(
             marionette.execute({
-                target: Addresses.ZERO_ADDRESS,
+                target: Addresses.General.ZERO_ADDRESS,
                 data: ""
             })
         ).rejects.toThrow("Contract: Not a valid Signer");
@@ -48,7 +48,7 @@ describe("execute()", () => {
         const { marionette } = await useMarionette({ useSigner: true });
         await expect(
             marionette.execute({
-                target: Addresses.ZERO_ADDRESS,
+                target: Addresses.General.ZERO_ADDRESS,
                 data: utils.hexlify(1)
             })
         ).rejects.toThrow()
@@ -59,7 +59,7 @@ describe("sendSFuel()", () => {
         const { marionette } = await useMarionette({ useSigner: false });
         await expect(
             marionette.sendSFuel({
-                target: Addresses.ZERO_ADDRESS,
+                target: Addresses.General.ZERO_ADDRESS,
                 value: BigNumber.from(1)
             })
         ).rejects.toThrow("Contract: Not a valid Signer");
@@ -69,7 +69,7 @@ describe("sendSFuel()", () => {
         const { marionette } = await useMarionette({ useSigner: true });
         await expect(
             marionette.sendSFuel({
-                target: Addresses.ZERO_ADDRESS,
+                target: Addresses.General.ZERO_ADDRESS,
                 value: BigNumber.from(1)
             })
         ).rejects.toThrow()
@@ -80,7 +80,7 @@ describe("encodeFunctionCall()", () => {
         const { marionette } = await useMarionette({ useSigner: false });
         await expect(
             marionette.encodeFunctionCall({
-                target: Addresses.ZERO_ADDRESS,
+                target: Addresses.General.ZERO_ADDRESS,
                 data: utils.hexlify(1),
                 value: BigNumber.from(0)
             })
