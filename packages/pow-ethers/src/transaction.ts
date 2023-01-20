@@ -4,7 +4,7 @@ import { BytesLike } from "@ethersproject/bytes";
 import SkalePowMiner from "@skaleproject/pow";
 import BN from "bn.js";
 import {Interface} from "ethers/lib/utils";
-import {utils} from "ethers";
+import {ethers} from "ethers";
 
 export interface IProofOfWorkParms {
   difficulty?: BN;
@@ -13,7 +13,7 @@ export interface IProofOfWorkParms {
 }
 
 export interface ITransactionParams {
-  to: `0x${string}`;
+  to?: `0x${string}`;
   data: BytesLike;
   gas?: BN;
 }
@@ -48,7 +48,7 @@ export default class ProofOfWork {
       to,
       data,
       nonce,
-      gasPrice: utils.hexlify(mineFreeGasResult)
+      gasPrice: ethers.BigNumber.from(mineFreeGasResult),
     }) 
   }
 
