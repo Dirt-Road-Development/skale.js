@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./lib/",
-    "rootDir": "./src",
-    "resolveJsonModule": true
+    "rootDir": "./src"
   },
   "exclude": [
     "./tests/*",
@@ -10,7 +9,7 @@
   ],
   "extends": "../../tsconfig.base.json",
   "include": [
-    "./src/*",
+    "./src",
     "./tests/*"
   ]
 }

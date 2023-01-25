@@ -44,7 +44,7 @@ describe("Public Functions", () => {
     })
     test("isAddressWhitelisted() => boolean", async() => {
         const { controller } = await useConfigController({ useSigner: false });
-        expect(await controller.isAddressWhitelisted({ address: Addresses.ZERO_ADDRESS })).toBeFalsy;
+        expect(await controller.isAddressWhitelisted({ address: Addresses.General.ZERO_ADDRESS })).toBeFalsy;
     })
 })
 describe("enableMTM()", () => {

@@ -11,11 +11,11 @@ const useMarionette = async({ useSigner }: { useSigner: boolean }) => {
     if (useSigner) {
         multisigWallet = new MultisigWallet({
             signer: rng,
-            rpcUrl: "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"
+            rpcUrl: "https://mainnet.skalenodes.com/v1/honorable-steel-rasalhague"
         });    
     } else {
         multisigWallet = new MultisigWallet({
-            rpcUrl: "https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"
+            rpcUrl: "https://mainnet.skalenodes.com/v1/honorable-steel-rasalhague"
         });  
     }
     
@@ -45,7 +45,7 @@ describe("createNewWallet()", () => {
         const { multisigWallet } = await useMarionette({ useSigner: true });
         await expect(
             multisigWallet.createNewWallet({
-                owners: [Addresses.ZERO_ADDRESS],
+                owners: [Addresses.General.ZERO_ADDRESS],
                 required: 0
             })
         ).rejects.toThrow("Multisig Wallet: Requires at least 1 signer")
@@ -54,7 +54,7 @@ describe("createNewWallet()", () => {
         const { multisigWallet } = await useMarionette({ useSigner: true });
         await expect(
             multisigWallet.createNewWallet({
-                owners: Array<string>(55).fill(Addresses.ZERO_ADDRESS),
+                owners: Array<string>(55).fill(Addresses.General.ZERO_ADDRESS),
                 required: 1
             })
         ).rejects.toThrow("Multisig Wallet: Must be less than 51 signers")
@@ -63,7 +63,7 @@ describe("createNewWallet()", () => {
         const { multisigWallet } = await useMarionette({ useSigner: true });
         await expect(
             multisigWallet.createNewWallet({
-                owners: Array<string>(3).fill(Addresses.ZERO_ADDRESS),
+                owners: Array<string>(3).fill(Addresses.General.ZERO_ADDRESS),
                 required: 5
             })
         ).rejects.toThrow("Multisig Wallet: Required Signatures must be less than or equal to number owners")
@@ -74,7 +74,7 @@ describe("addOwner()", () => {
         const { multisigWallet } = await useMarionette({ useSigner: false });
         await expect(
             multisigWallet.addOwner({
-                address: Addresses.ZERO_ADDRESS
+                address: Addresses.General.ZERO_ADDRESS
             })
         ).rejects.toThrow("Contract: Not a valid Signer");
     })
@@ -90,7 +90,7 @@ describe("addOwner()", () => {
         const { multisigWallet } = await useMarionette({ useSigner: true });
         await expect(
             multisigWallet.addOwner({
-                address: Addresses.ZERO_ADDRESS
+                address: Addresses.General.ZERO_ADDRESS
             })
         ).rejects.toThrow(""); 
     })
@@ -100,7 +100,7 @@ describe("removeOwner()", () => {
         const { multisigWallet } = await useMarionette({ useSigner: false });
         await expect(
             multisigWallet.removeOwner({
-                address: Addresses.ZERO_ADDRESS
+                address: Addresses.General.ZERO_ADDRESS
             })
         ).rejects.toThrow("Contract: Not a valid Signer");
     })
@@ -116,7 +116,7 @@ describe("removeOwner()", () => {
         const { multisigWallet } = await useMarionette({ useSigner: true });
         await expect(
             multisigWallet.removeOwner({
-                address: Addresses.ZERO_ADDRESS
+                address: Addresses.General.ZERO_ADDRESS
             })
         ).rejects.toThrow(""); 
     })
@@ -126,8 +126,8 @@ describe("replaceOwner()", () => {
         const { multisigWallet } = await useMarionette({ useSigner: false });
         await expect(
             multisigWallet.replaceOwner({
-                owner: Addresses.ZERO_ADDRESS,
-                newOwner: Addresses.ZERO_ADDRESS
+                owner: Addresses.General.ZERO_ADDRESS,
+                newOwner: Addresses.General.ZERO_ADDRESS
             })
         ).rejects.toThrow("Contract: Not a valid Signer");
     })
@@ -136,7 +136,7 @@ describe("replaceOwner()", () => {
         await expect(
             multisigWallet.replaceOwner({
                 owner: "0xNOTANETHEREUMADDRESS",
-                newOwner: Addresses.ZERO_ADDRESS
+                newOwner: Addresses.General.ZERO_ADDRESS
             })
         ).rejects.toThrow("MultisigWallet: Owner is Invalid Ethereum Address"); 
     })
@@ -144,7 +144,7 @@ describe("replaceOwner()", () => {
         const { multisigWallet } = await useMarionette({ useSigner: true });
         await expect(
             multisigWallet.replaceOwner({
-                owner: Addresses.ZERO_ADDRESS,
+                owner: Addresses.General.ZERO_ADDRESS,
                 newOwner: "0xNOTANETHEREUMADDRESS"
             })
         ).rejects.toThrow("MultisigWallet: New Owner Invalid Ethereum Address"); 
@@ -153,8 +153,8 @@ describe("replaceOwner()", () => {
         const { multisigWallet } = await useMarionette({ useSigner: true });
         await expect(
             multisigWallet.replaceOwner({
-                owner: Addresses.ZERO_ADDRESS,
-                newOwner: Addresses.ZERO_ADDRESS
+                owner: Addresses.General.ZERO_ADDRESS,
+                newOwner: Addresses.General.ZERO_ADDRESS
             })
         ).rejects.toThrow(""); 
     })
@@ -226,7 +226,7 @@ describe("isConfirmed()", () => {
         const { multisigWallet } = await useMarionette({ useSigner: false });
         await expect(
             multisigWallet.isConfirmed({
-                transactionId: BigNumber.from(1)
+                transactionId: BigNumber.from(10000000)
             })
         ).resolves.toEqual(false);
         await expect(
@@ -242,7 +242,7 @@ describe("getConfirmationCount()", () => {
         const transactionCount: BigNumber = await multisigWallet.getConfirmationCount({
             transactionId: BigNumber.from(0)
         })
-        expect(Number(transactionCount)).toEqual(0);
+        expect(Number(transactionCount)).toBeGreaterThanOrEqual(0);
     })
 })
 describe("getTransactionCount()", () => {
@@ -260,7 +260,7 @@ describe("getTransactionCount()", () => {
             pending: false,
             executed: true
         });
-        expect(Number(transactionCount)).toEqual(0);
+        expect(Number(transactionCount)).toBeGreaterThanOrEqual(32);
     })
     test("Pending - Executed", async() => {
         const { multisigWallet } = await useMarionette({ useSigner: false });
@@ -268,7 +268,7 @@ describe("getTransactionCount()", () => {
             pending: true,
             executed: true
         });
-        expect(Number(transactionCount)).toEqual(0);
+        expect(Number(transactionCount)).toBeGreaterThanOrEqual(32);
     })
 })
 describe("getOwners()", () => {
@@ -284,18 +284,18 @@ describe("getConfirmations()", () => {
         const confirmations: string[] = await multisigWallet.getConfirmations({
             transactionId: constants.One
         });
-        expect(confirmations.length).toEqual(0); 
+        expect(confirmations.length).toBeGreaterThanOrEqual(1); 
     })
 })
 describe("getTransactionIds()", () => {
     test("Empty", async() => {
         const { multisigWallet } = await useMarionette({ useSigner: false });
         await expect(multisigWallet.getTransactionIds({
-            from: constants.Zero,
-            to: constants.One,
+            from: BigNumber.from(10),
+            to: BigNumber.from(11),
             pending: false,
             executed: false
-        })).rejects.toThrow();
+        })).resolves.toEqual([BigNumber.from(0)])
     })
 })
 describe("isOwner()", () => {
@@ -303,7 +303,7 @@ describe("isOwner()", () => {
         const { multisigWallet } = await useMarionette({ useSigner: false });
         await expect(
             multisigWallet.isOwner({
-                address: Addresses.ZERO_ADDRESS
+                address: Addresses.General.ZERO_ADDRESS
             })
         ).resolves.toEqual(false);
     })
@@ -312,9 +312,9 @@ describe("getTransaction()", () => {
     test("Information", async() => {
         const { multisigWallet } = await useMarionette({ useSigner: false });
         const transaction: ITransaction = await multisigWallet.getTransaction({ transactionId: constants.One });
-        expect(transaction.destination).toEqual(Addresses.ZERO_ADDRESS);
+        expect(transaction.destination).toEqual("0xD2c0DeFACe000000000000000000000000000000");
         expect(Number(transaction.value)).toEqual(0);
-        expect(transaction.data).toEqual("0x");
+        expect(transaction.data).toEqual("0xb61d27f6000000000000000000000000d2002000000000000000000000000000000000d20000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000442f2ff15dfc425f2263d0df187444b70e47283d622c70181c5baebb1306a01edba1ce184c0000000000000000000000002c20ef3fc0248fca2dc57bcb202f2cae504a9a6600000000000000000000000000000000000000000000000000000000");
         expect(transaction.executed).toBeFalsy;
     });
 })

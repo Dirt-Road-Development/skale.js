@@ -1,6 +1,6 @@
 {
   "name": "@skaleproject/multisig-wallet",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "SKALE Network Pre-deployed Multisignature Wallet Contract",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

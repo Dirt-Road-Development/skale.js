@@ -30,6 +30,7 @@
             "path": "./packages/marionette"
         },
         {
+<<<<<<< HEAD
             "path": "./packages/pow"
         },
         {
@@ -37,6 +38,9 @@
         },
         {
             "path": "./packages/pow-web3"
+=======
+            "path": "./packages/ima"
+>>>>>>> origin/development
         },
         {
             "path": "./packages/skale.js"

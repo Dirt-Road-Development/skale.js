@@ -1,7 +1,7 @@
 {
-  "name": "@skaleproject/marionette",
+  "name": "@skaleproject/ima",
   "version": "0.2.1",
-  "description": "SKALE Network Pre-deployed Marionette",
+  "description": "SKALE Interchain Messaging Agent Package",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "files": [
@@ -19,7 +19,7 @@
     "test:watch": "jest --watchAll --testTimeout=15000"
   },
   "repository": {
-    "directory": "packages/marionette",
+    "directory": "packages/ima",
     "type": "git",
     "url": "git+https://github.com/Dirt-Road-Development/skale.js.git"
   },
@@ -34,5 +34,6 @@
     "@skaleproject/constants": "*",
     "@skaleproject/utils": "*",
     "ethers": "^5.7.2"
-  }
+  },
+  "gitHead": "515548f5779ad534a58527e21c0a0f0caca21872"
 }

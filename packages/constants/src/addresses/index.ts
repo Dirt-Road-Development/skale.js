@@ -2,18 +2,21 @@ import * as General from './constants';
 import * as Mainnet from './mainnet';
 import * as Schain from './predeployed';
 import * as Staging from './staging-v3';
+import * as IMA from "./ima";
 
 const Addresses = {
-    ...General,
+    General,
     Mainnet,
     Staging,
-    Schain
+    Schain,
+    IMA
 };
 
 export {
     Addresses,
     Mainnet,
     Schain,
-    Staging
+    Staging,
+    IMA
 }
 
