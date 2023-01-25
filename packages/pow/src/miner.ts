@@ -14,22 +14,24 @@ export default class SkalePowMiner {
     if (params && params.difficulty) this.difficulty = params.difficulty;
   }
 
-  public async mineGasForTransaction(nonce: any, gas: any, from: string) : Promise<any> {
+  public async mineGasForTransaction(nonce: any, gas: any, from: string, bytes?: string) : Promise<any> {
     let address = from;
     nonce = isHex(nonce) ? hexToNumber(nonce) : nonce;
     gas = isHex(gas) ? hexToNumber(gas) : gas;
-    return await this.mineFreeGas(gas, address, nonce);
+    return await this.mineFreeGas(gas, address, nonce, bytes);
   }
 
-  public async mineFreeGas(gasAmount: any, address: any, nonce: any) {
+  public async mineFreeGas(gasAmount: any, address: any, nonce: any, bytes?: string) {
     let nonceHash = new BN(soliditySha3(nonce).slice(2), 16)
     let addressHash = new BN(soliditySha3(address).slice(2), 16)
     let nonceAddressXOR = nonceHash.xor(addressHash)
     let maxNumber = new BN(2).pow(new BN(256)).sub(new BN(1));
     let divConstant = maxNumber.div(this.difficulty);
     let candidate: any;
+    let _bytes: any;
     while (true) {
-        candidate = new BN(crypto.randomBytes(32).toString('hex'), 16);
+        _bytes = crypto.randomBytes(32).toString("hex");
+        candidate = new BN(bytes ?? _bytes, 16);
         let candidateHash = new BN(soliditySha3(candidate).slice(2), 16);
         let resultHash = nonceAddressXOR.xor(candidateHash);
         let externalGas = divConstant.div(resultHash).toNumber();

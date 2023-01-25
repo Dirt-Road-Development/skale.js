@@ -7,7 +7,7 @@ export default {
       statements: 80 
     }
   },
-  errorOnDeprecated: false,
-  maxWorkers: "65%",
+  errorOnDeprecated: true,
+  maxWorkers: "15%",
   preset: "ts-jest",
 };
