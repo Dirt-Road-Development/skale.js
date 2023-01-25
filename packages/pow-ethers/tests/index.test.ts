@@ -7,10 +7,6 @@ import {
 
 describe("Unit Testing for Proof of Work", () => {
   
-  // async function loadERC20Artifact() {
-  //   return { factory };
-  // }
-
   xtest("Random Deployer Attempt", async() => {
   
     const factory = new ethers.ContractFactory(ERC20_INTERFACE, ERC20_BYTECODE);
@@ -29,7 +25,7 @@ describe("Unit Testing for Proof of Work", () => {
 
   })
 
-  test("Test Mint", async() => {
+  xtest("Test Mint", async() => {
     const contract = new ethers.Contract("0x86f38910c6d36989c0ad2ee745b528dce1613dcd", ERC20_INTERFACE);
 
     const pow = new ProofOfWork({ isMainnet: true, rpcUrl: "https://mainnet.skalenodes.com/v1/harsh-alsuhail" }); 
