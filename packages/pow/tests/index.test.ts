@@ -11,11 +11,11 @@ describe("Proof of Work", () => {
 
   describe("Case 1", () => {
     test("mineFreeGas()", async() => {
-      const mine = await pow.mineFreeGas(21000, Addresses.ZERO_ADDRESS, 0, CASE_1_BYTES);
+      const mine = await pow.mineFreeGas(21000, Addresses.General.ZERO_ADDRESS, 0, CASE_1_BYTES);
       expect(mine).toEqual("114300136082501599864048599238123214497793374349333258509328848624001693396662");
     })
     test("mineGasForTransaction", async() => {
-      const mine = await pow.mineGasForTransaction(0, 21000, Addresses.ZERO_ADDRESS, CASE_1_BYTES);
+      const mine = await pow.mineGasForTransaction(0, 21000, Addresses.General.ZERO_ADDRESS, CASE_1_BYTES);
       expect(mine).toEqual("114300136082501599864048599238123214497793374349333258509328848624001693396662");
     })
   })
