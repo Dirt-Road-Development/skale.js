@@ -26,16 +26,15 @@ import { id, isAddress } from "ethers/lib/utils";
 export class ConfigController extends AccessControlEnumerable {
 
     
-    public DEPLOYER_ADMIN_ROLE: string = id("ETHER_MANAGER_ROLE");
+    public DEPLOYER_ADMIN_ROLE: string = id("DEPLOYER_ADMIN_ROLE");
     public DEPLOYER_ROLE: string = id("DEPLOYER_ROLE");
     public MTM_ADMIN_ROLE: string = id("MTM_ADMIN_ROLE");
 
     /**
      * 
-     * Initialization of the ConfigController Contract
-     * This is a wrapper of the solidity smart contract 
+     * @param params - The core contract params for client interaction 
+     * Wrapper of the ConfigController Solidity Contract
      * 
-     * @param {IInitParams} params - The core parameters passed into the constructor
      */
     constructor(params: IInitParams) {
         super({
@@ -47,17 +46,13 @@ export class ConfigController extends AccessControlEnumerable {
 
     /**
      * 
+     * @param params - IWhitelist contains the address to whitelist and the checkParams flag
+     *
      * Wrapper for Solidity Function addToWhitelist. Utilizes grantRole under the hood
-     * Must have {DEPLOYER_ADMIN_ROLE} to successfully call
+     * Must have DEPLOYER_ADMIN_ROLE to successfully call
      * Optional: Can optionally call runChecks to run contract requirements on the client
      * 
-     * @function addToWhitelist
-     * 
-     * @param {IWhitelist} params - IWhitelist contains the address to whitelist and the checkParams flag
-     * @returns {ContractReceipt} Transaction Information
-     * 
-     * @public
-    */
+     */
     public async addToWhitelist(params: IWhitelist) : Promise<ContractReceipt> {
         this.checkSigner();
         if (params.runChecks) {
