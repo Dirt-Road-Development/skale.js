@@ -1,8 +1,8 @@
 SKALE.js | The SKALE Network SDK
 ==================
 [![Code Coverage](https://github.com/Dirt-Road-Development/skale.js/actions/workflows/coverage.yml/badge.svg?branch=main)](https://github.com/Dirt-Road-Development/skale.js/actions/workflows/coverage.yml)
-[![npm (tag)](https://img.shields.io/npm/v/@dirtroad/skale)](https://www.npmjs.com/package/@dirtroad/skale)
 [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/thegreataxios.svg?style=social&label=Follow%20%40thegreataxios)](https://twitter.com/thegreataxios)
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/thegreataxios)
 
 A community run project designed to offer abstraction over the core SKALE network smart contracts.
 
@@ -11,17 +11,34 @@ Installation
 
 ```bash
 
-npm add @dirtroad/skale
+# Install Individual Components
+npm add @skaleproject/<component-name>
+
+# The umbrella package
+npm add @skaleproject/skale.js
 
 ```
 
-Official SKALE Packages
+Available Packages on NPM
 ----------
-Currently the core team building and supporting the SKALE Network offers the following packages:
 
-- [Filestorage](https://github.com/skalenetwork/filestorage.js)
-- [IMA](https://github.com/skalenetwork/ima-js)
-- [Metaport](https://github.com/skalenetwork/metaport)
+The following are all of the SKALE.js packages available
+
+| Package Name             				| NPM Tag               | 
+| ------------------------------------- |:--------------------- |  
+| @skaleproject/constants 				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/utils)](https://www.npmjs.com/package/@skaleproject/utils) 								| 
+| @skaleproject/skale.js   				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/skale.js)](https://www.npmjs.com/package/@skaleproject/skale.js) 						|
+| @skaleproject/config-controller   	| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/config-controller)](https://www.npmjs.com/package/@skaleproject/config-controller) 		|
+| @skaleproject/etherbase				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/etherbase)](https://www.npmjs.com/package/@skaleproject/etherbase)                       |
+| @skaleproject/context					| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/context)](https://www.npmjs.com/package/@skaleproject/context)                       	|
+| @skaleproject/marionette				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/marionette)](https://www.npmjs.com/package/@skaleproject/marionette)                     |
+| @skaleproject/multisig-wallet  		| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/multisig-wallet)](https://www.npmjs.com/package/@skaleproject/multisig-wallet) 			|
+| @skaleproject/ima						| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/ima)](https://www.npmjs.com/package/@skaleproject/ima)                       			|
+| @skaleproject/pow						| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/pow)](https://www.npmjs.com/package/@skaleproject/pow)                       			|
+| @skaleproject/pow-ethers				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/pow-ethers)](https://www.npmjs.com/package/@skaleproject/pow-ethers)             		|
+| @skaleproject/pow-web3				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/pow-web3)](https://www.npmjs.com/package/@skaleproject/pow-web3)             			| 
+
+
 
 Contribution
 ----------

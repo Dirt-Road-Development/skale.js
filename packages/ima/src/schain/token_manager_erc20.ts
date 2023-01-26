@@ -33,8 +33,7 @@ export class TokenManagerERC20 extends TokenManager {
     }
 
     /**
-     * @function isAddedClone
-     * @param {`0x${string}`} address is the address of the token
+     * @param address - Address parameter being checked for clone status
      *
      * @description If the token is an clone on the chain i.e linked to another chain it will return true
      */
