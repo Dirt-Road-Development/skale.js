@@ -137,7 +137,7 @@ export type EncodeSendParams = {
  * @param {any} abi - Abi of the contract
  * @param {string} - Bytecode of the contract
  */
-export type Contract = {
+export type ContractConfig = {
     abi: any;
     bytecode: string;
 };
