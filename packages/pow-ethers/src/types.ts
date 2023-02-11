@@ -1,7 +1,7 @@
 import BN from "bn.js";
 import { BytesLike } from "@ethersproject/bytes";
 import { Web3Provider} from "@ethersproject/providers";
-import { Wallet } from "ethers";
+import { Wallet } from "@ethersproject/wallet";
 
 /**
  * @type

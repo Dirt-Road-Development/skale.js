@@ -1,23 +1,20 @@
-import { Web3Provider, } from "@ethersproject/providers";
+import { Web3Provider } from "@ethersproject/providers";
 import SkalePowMiner from "@skaleproject/pow/src/index";
 import BN from "bn.js/index";
 import { Interface } from "ethers/lib/utils";
 import { InjectedParams, TransactionParams, EncodeSendParams } from "./types";
 import { BigNumber } from "@ethersproject/bignumber";
+import BaseMiner from "./miner";
 
-export default class InjectedPow {
+export default class InjectedPow extends BaseMiner {
 
     protected provider: Web3Provider;
     protected miner: SkalePowMiner;
     protected userAddress: string;
 
     constructor(params: InjectedParams) {
+      super(params.difficulty);
         this.provider = params.provider;
-        this.miner = new SkalePowMiner({ difficulty: params.difficulty });
-        this.provider.listAccounts()
-            .then((accounts: string[]) => {
-                this.userAddress = accounts[0];
-            })
     }
 
     public async send(params: TransactionParams) {

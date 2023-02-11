@@ -5,15 +5,16 @@ import BN from "bn.js/index";
 import { Interface } from "ethers/lib/utils";
 import { AnonymousParams, TransactionParams, EncodeSendParams } from "./types";
 import { BigNumber } from "@ethersproject/bignumber";
+import BaseMiner from "./miner";
 
-export default class AnonymousPoW {
+export default class AnonymousPoW extends BaseMiner {
   
   protected provider: JsonRpcProvider;
   protected miner: SkalePowMiner;
   protected wallet: Wallet;
 
   constructor(params: AnonymousParams) {
-    this.miner = new SkalePowMiner({ difficulty: params.difficulty });
+    super(params.difficulty);
     this.provider = new JsonRpcProvider(params.rpcUrl);
     this.wallet = Wallet.createRandom().connect(this.provider);
   }
