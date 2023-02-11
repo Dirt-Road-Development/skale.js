@@ -1,6 +1,6 @@
 {
   "author": "Sawyer Cutler <sawyer@dirtroad.dev>",
-  "dependencies": {
+  "devDependencies": {
     "@skaleproject/config-controller": "*",
     "@skaleproject/constants": "*",
     "@skaleproject/context": "*",
@@ -18,7 +18,7 @@
   "types": "./lib/index.d.ts",
   "name": "@skaleproject/skale.js",
   "repository": {
-    "directory": "packages/skale",
+    "directory": "packages/skale.js",
     "type": "git",
     "url": "git://github.com/Dirt-Road-Development/skale.js.git"
   },
