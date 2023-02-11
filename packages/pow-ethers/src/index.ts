@@ -3,10 +3,27 @@
  * @author Sawyer Cutler
  * @license MIT
  * @copyright 2022 Dirt Road Dev
- * @package @skale.js/pow-ethers
+ * @package @skaleproject/pow-ethers
  *
  */
 
-import ProofOfWork from "./transaction";
+import AnonymousPoW from "./anonymous";
+import AnonymousContractPow from "./anonymous_contract";
+import BaseMiner from "./miner";
+import InjectedPow from "./injected";
+import InjectedContractPow from "./injected_contract";
+import WalletPow from "./wallet";
+import WalletPowContract from "./wallet_contract";
 
-export default ProofOfWork;
+export default {
+    AnonymousPoW,
+    AnonymousContractPow,
+    BaseMiner,
+    InjectedPow,
+    InjectedContractPow,
+    WalletPow,
+    WalletPowContract
+};
+
+
+export * from "./types";
