@@ -129,3 +129,15 @@ export type EncodeSendParams = {
     functionName: string;
     functionArgs: any[];
 } & TransactionParams;
+
+/**
+ * @type
+ * @name ContractConfig
+ * 
+ * @param {any} abi - Abi of the contract
+ * @param {string} - Bytecode of the contract
+ */
+export type Contract = {
+    abi: any;
+    bytecode: string;
+};
