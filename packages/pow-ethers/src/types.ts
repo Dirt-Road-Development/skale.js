@@ -1,6 +1,7 @@
 import BN from "bn.js";
 import { BytesLike } from "@ethersproject/bytes";
 import { Web3Provider} from "@ethersproject/providers";
+import { Wallet } from "ethers";
 
 /**
  * @type
@@ -57,6 +58,30 @@ export type InjectedContractParams = {
     address: string;
 } & InjectedParams;
 
+/**
+ * @type
+ * @name WalletParams
+ * 
+ * @param {BN?} difficulty - Difficulty which defaults to BN(1)
+ * @param {Wallet} wallet - Web3 Ethers Wallet which should contain a provider
+ */
+export type WalletParams = {
+    difficulty?: BN;
+    wallet: Wallet;
+}
+
+/**
+ * @type
+ * @name WalletContractParams
+ * 
+ * {@inheritdoc WalletParams}
+ * @param {any} abi - ABI of smart contract. Generally passed in as a JSON array
+ * @param {string} address - 0x Address of the smart contract
+ */
+export type WalletContractParams = {
+    abi: any;
+    address: string;
+} & WalletParams;
 
 /**
  * @type
