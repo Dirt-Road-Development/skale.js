@@ -7,6 +7,15 @@
  *
  */
 
-import ProofOfWork from "./transaction";
+import AnonymousPoW from "./anonymous";
+import AnonymousContractPow from "./anonymous_contract";
+import InjectedPow from "./injected";
+import InjectedContractPow from "./injected_contract";
 
-export default ProofOfWork;
+export default {
+    AnonymousPoW,
+    AnonymousContractPow,
+    InjectedPow,
+    InjectedContractPow
+    
+};
