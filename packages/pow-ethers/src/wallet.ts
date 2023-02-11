@@ -2,8 +2,8 @@ import { Wallet } from "@ethersproject/wallet";
 import SkalePowMiner from "@skaleproject/pow/src";
 import assert from "assert";
 import { BN } from "bn.js";
-import { BigNumber } from "ethers";
-import { Interface } from "ethers/lib/utils";
+import { BigNumber } from "@ethersproject/bignumber";
+import { Interface } from "@ethersproject/abi";
 import BaseMiner from "./miner";
 import { EncodeSendParams, TransactionParams, WalletParams } from "./types";
 

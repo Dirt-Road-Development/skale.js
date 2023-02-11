@@ -1,7 +1,7 @@
 import { Web3Provider } from "@ethersproject/providers";
 import SkalePowMiner from "@skaleproject/pow/src/index";
 import BN from "bn.js/index";
-import { Interface } from "ethers/lib/utils";
+import { Interface } from "@ethersproject/abi";
 import { InjectedParams, TransactionParams, EncodeSendParams } from "./types";
 import { BigNumber } from "@ethersproject/bignumber";
 import BaseMiner from "./miner";
