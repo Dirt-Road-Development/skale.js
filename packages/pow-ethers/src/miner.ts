@@ -1,4 +1,4 @@
-import SkalePowMiner from "@skaleproject/pow/src";
+import SkalePowMiner from "@skaleproject/pow";
 import BN from "bn.js";
 
 export default abstract class BaseMiner {

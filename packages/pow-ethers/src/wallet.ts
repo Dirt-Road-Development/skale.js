@@ -1,7 +1,7 @@
 import { Wallet } from "@ethersproject/wallet";
-import SkalePowMiner from "@skaleproject/pow/src";
+import SkalePowMiner from "@skaleproject/pow";
 import assert from "assert";
-import { BN } from "bn.js";
+import BN from "bn.js";
 import { BigNumber } from "@ethersproject/bignumber";
 import { Interface } from "@ethersproject/abi";
 import BaseMiner from "./miner";

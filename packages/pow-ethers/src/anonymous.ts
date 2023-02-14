@@ -1,6 +1,6 @@
 import { Wallet } from "@ethersproject/wallet";
 import { JsonRpcProvider, } from "@ethersproject/providers";
-import SkalePowMiner from "@skaleproject/pow/src/index";
+import SkalePowMiner from "@skaleproject/pow";
 import { AnonymousParams } from "./types";
 import WalletPow from "./wallet";
 
