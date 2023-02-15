@@ -1,0 +1,22 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "entryPointStrategy": "packages",
+    "entryPoints": [
+        "packages/pow-ethers",
+        "packages/skale.js",
+        "packages/ima",
+        "packages/constants",
+        "packages/utils",
+        "packages/multsig-wallet",
+        "packages/context",
+        "packages/config-controller",
+        "packages/etherbase",
+        "packages/marionette",
+        "packages/pow",
+        "packages/pow-ethers",
+        "packages/pow-web3"
+    ],
+    "out": "doc",
+    "gaID": "G-Y6G01VEN69",
+    "cleanOutputDir": true
+}
