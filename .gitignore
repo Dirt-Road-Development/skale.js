@@ -24,6 +24,3 @@ coverage
 lerna-debug.log
 docs/
 docs
-docs
-docs/**
-docs/*

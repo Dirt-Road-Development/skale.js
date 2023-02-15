@@ -16,7 +16,7 @@
         "packages/pow-ethers",
         "packages/pow-web3"
     ],
-    "out": "doc",
+    "out": "docs",
     "gaID": "G-Y6G01VEN69",
     "cleanOutputDir": true
 }
