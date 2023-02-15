@@ -1,6 +1,6 @@
 {
     "$schema": "https://typedoc.org/schema.json",
-    "entryPointStrategy": "resolve",
+    "entryPointStrategy": "packages",
     "entryPoints": [
         "packages/pow-ethers",
         "packages/ima",
