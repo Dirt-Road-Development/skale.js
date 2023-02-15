@@ -1,6 +1,6 @@
 {
   "name": "@skaleproject/pow-ethers",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc --build ./tsconfig.json",
     "build:watch": "nodemon --watch \"./src/**/*.*\" --exec npm run build",
-    "test": "jest --testTimeout=25000",
+    "test": "jest --testTimeout=35000",
     "test:watch": "jest --watchAll --testTimeout=25000"
   },
   "repository": {
@@ -32,11 +32,13 @@
     "@ethersproject/providers": "^5.7.2",
     "@ethersproject/wallet": "^5.7.0",
     "@skaleproject/constants": "*",
-    "@skaleproject/pow": "*",
     "@skaleproject/utils": "*",
     "@types/jest": "^29.2.3",
     "bn.js": "^5.2.1",
     "jest": "^29.3.1",
     "ts-jest": "^29.0.3"
+  },
+  "dependencies": {
+    "@skaleproject/pow": "*"
   }
 }

@@ -22,6 +22,3 @@ coverage
 **/*.tgz
 
 lerna-debug.log
-docs/
-docs
-docs
