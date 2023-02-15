@@ -1,6 +1,6 @@
 {
   "name": "@skaleproject/pow-ethers",
-  "version": "0.2.2-4",
+  "version": "0.2.2",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
