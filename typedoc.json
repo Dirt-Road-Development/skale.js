@@ -3,7 +3,6 @@
     "entryPointStrategy": "packages",
     "entryPoints": [
         "packages/pow-ethers",
-        "packages/skale.js",
         "packages/ima",
         "packages/constants",
         "packages/utils",
