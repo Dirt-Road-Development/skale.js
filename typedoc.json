@@ -18,6 +18,6 @@
     "out": "docs",
     "gaID": "G-Y6G01VEN69",
     "cleanOutputDir": true,
-    "basePath": "./",
+    "basePath": "./vercel/path1",
     "hideGenerator": true
 }
