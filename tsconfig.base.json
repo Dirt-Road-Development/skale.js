@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "lib": [
@@ -17,7 +17,6 @@
     "preserveSymlinks": true,
     "preserveWatchOutput": true,
     "pretty": false,
-    "resolveJsonModule": true,
-    "sourceMap": true
+    "resolveJsonModule": true
   }
 }
