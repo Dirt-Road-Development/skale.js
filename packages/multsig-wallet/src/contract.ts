@@ -13,7 +13,7 @@ import { BaseContract } from "@skaleproject/utils/lib/contracts/base_contract";
 import { BigNumber, Contract, ContractReceipt, ethers } from "ethers";
 import { BytesLike, isAddress } from "ethers/lib/utils";
 import MultisigWalletABI from "./abi.json";
-import { MSGFunctionMap } from "./functions";
+// import { MSGFunctionMap } from "./functions";
 import { IAddress, IBaseTransaction, ICreateNewWallet, IOnlyWalletFunction, IReplaceOwner, IRequirement, ITransaction, ITransactionCount, ITransactionId, ITransactionIds } from "./interfaces";
 import MultisigWalletBytecode from "./bytecode";
 import assert, { AssertionError } from "assert";
@@ -33,11 +33,13 @@ export class MultisigWallet extends BaseContract {
      * @param {IInitParams} params - The core parameters passed into the constructor
      */
      constructor(params: IInitParams) {
+         console.log("Params: ", params);
         super({
             ...params,
             address: params.address ?? Addresses.Schain.SCHAIN_MULTISIG_WALLET_ADDRESS,
             abi: params.abi ?? MultisigWalletABI
         });
+        console.log(params.signer);
     }
 
     /**
@@ -84,7 +86,7 @@ export class MultisigWallet extends BaseContract {
             value: BigNumber.from(0),
             data: this.onlyWalletFunction({
                 function: "addOwner",
-                    values: [params.address]
+                values: [params.address]
             })
         });
     }
@@ -210,8 +212,11 @@ export class MultisigWallet extends BaseContract {
         return await this.contract.submitTransaction(
             params.destination,
             params.value,
-            params.data
-        )
+            params.data,
+            {
+                gasLimit: params.gasLimit ?? ethers.utils.hexlify(375000)
+            }
+        );
     }
 
     /**
@@ -267,7 +272,7 @@ export class MultisigWallet extends BaseContract {
     */
     private onlyWalletFunction(params: IOnlyWalletFunction) : BytesLike {
         return this.contract.interface.encodeFunctionData(
-            MSGFunctionMap[params.function],
+            params.function,
             params.values
         );
     }
