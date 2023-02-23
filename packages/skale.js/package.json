@@ -23,7 +23,10 @@
     "url": "git://github.com/Dirt-Road-Development/skale.js.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc --build ./tsconfig.json",
+    "build:watch": "nodemon --watch \"./src/**/*.*\" --exec npm run build",
+    "test": "jest --testTimeout=15000",
+    "test:watch": "jest --watchAll --testTimeout=15000"
   },
   "sideEffects": false,
   "version": "0.2.1",
