@@ -1,6 +1,6 @@
 {
   "author": "Sawyer Cutler <sawyer@dirtroad.dev>",
-  "devDependencies": {
+  "dependencies": {
     "@skaleproject/config-controller": "*",
     "@skaleproject/constants": "*",
     "@skaleproject/context": "*",
@@ -29,6 +29,6 @@
     "test:watch": "jest --watchAll --testTimeout=15000"
   },
   "sideEffects": false,
-  "version": "0.2.1",
+  "version": "0.2.4",
   "gitHead": "515548f5779ad534a58527e21c0a0f0caca21872"
 }

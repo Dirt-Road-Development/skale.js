@@ -22,7 +22,7 @@ export default class SkalePowMiner {
   }
 
   public async mineFreeGas(gasAmount: any, address: any, nonce: any, bytes?: string) {
-    let nonceHash = new BN(soliditySha3(nonce).slice(2), 16)
+    let nonceHash = new BN(soliditySha3(nonce).slice(2), 16);
     let addressHash = new BN(soliditySha3(address).slice(2), 16)
     let nonceAddressXOR = nonceHash.xor(addressHash)
     let maxNumber = new BN(2).pow(new BN(256)).sub(new BN(1));
@@ -36,9 +36,12 @@ export default class SkalePowMiner {
         let resultHash = nonceAddressXOR.xor(candidateHash);
         let externalGas = divConstant.div(resultHash).toNumber();
         if (externalGas >= gasAmount) {
+            console.log("External Gas: ", externalGas);
+            console.log("Candidate Hash: ", candidateHash);
             break;
         }
     }
+    console.log("Candidate: ", candidate, candidate.toString());
     return candidate.toString();
   }
 }

@@ -18,6 +18,12 @@ export interface IInitParams extends IParams {
     abi?: any;
 }
 
+export interface IInjectedParams {
+    signer: providers.Web3Provider | providers.JsonRpcSigner;
+    address?: string;
+    abi?: any; 
+}
+
 export interface IContractParams extends IParams, IBaseContractParams {}
     
 export class BaseContract {
