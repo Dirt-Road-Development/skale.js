@@ -9,9 +9,11 @@
  * 
 */
 
-import {Addresses} from "@skaleproject/constants/lib/addresses";
+import { Address } from "@skaleproject/constants";
 import { BigNumber, ethers } from "ethers";
 import { Etherbase } from "../src";
+
+const Addresses = Address.Addresses;
 
 
 describe("Etherbase Test Suite", () => {

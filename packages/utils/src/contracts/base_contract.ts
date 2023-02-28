@@ -38,6 +38,8 @@ export class BaseContract {
             params.signer;
             provider = params.signer;
             this.hasSigner = params.signer._isSigner;
+            // this.contract.signer.getAddress().then((addr: string) => this.signerAddr = addr);
+            this.signerAddr = provider.address;
         } else if (params.wsUrl) {
             assert(params.wsUrl.includes(("ws")), "Invalid Websocket Url");
             provider = new providers.WebSocketProvider(params.wsUrl);     
@@ -50,8 +52,6 @@ export class BaseContract {
             params.abi,
             provider
         );
-
-        this.contract.signer.getAddress().then((addr: string) => this.signerAddr = addr);
     }
 
     public checkSigner() : void {

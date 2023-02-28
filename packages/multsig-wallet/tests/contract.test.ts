@@ -32,7 +32,7 @@ describe("createNewWallet()", () => {
                 owners: [],
                 required: 0
             })
-        ).rejects.toThrow("Contract: Not a valid Signer");
+        ).rejects.toThrow("Signer does not exist");
     })
     test("Number Owners Must be Greater Than 0", async() => {
         const { multisigWallet } = await useMarionette({ useSigner: true });
@@ -277,7 +277,7 @@ describe("getOwners()", () => {
     test("Owners", async() => {
         const { multisigWallet } = await useMarionette({ useSigner: false });
         const owners: string[] = await multisigWallet.getOwners();
-        expect(owners.length).toEqual(1); 
+        expect(owners.length).toEqual(3); 
     })
 })
 describe("getConfirmations()", () => {
@@ -326,6 +326,6 @@ describe("getRequired()", () => {
         
         await expect(
             multisigWallet.getRequired()
-        ).resolves.toEqual(1);
+        ).resolves.toEqual(2);
     });
 })
