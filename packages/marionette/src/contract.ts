@@ -8,11 +8,13 @@
 */
 
 
-import { Addresses } from "@skaleproject/constants/lib/addresses";
+import { Address } from "@skaleproject/constants";
 import { AccessControlEnumerable, IInitParams } from "@skaleproject/utils";
 import { BytesLike, constants, ContractReceipt, utils } from "ethers";
 import MarionetteABI from "./abi.json";
 import { IExecute, ISendSFuel } from "./interfaces";
+
+const Addresses = Address.Addresses;
 
 /**
  * @contract Marionette
