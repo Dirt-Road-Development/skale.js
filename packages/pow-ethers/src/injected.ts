@@ -1,6 +1,4 @@
 import { Web3Provider } from "@ethersproject/providers";
-import SkalePowMiner from "@skaleproject/pow";
-import BN from "bn.js";
 import { Interface } from "@ethersproject/abi";
 import { InjectedParams, TransactionParams, EncodeSendParams } from "./types";
 import { BigNumber } from "@ethersproject/bignumber";
@@ -9,8 +7,6 @@ import BaseMiner from "./miner";
 export default class InjectedPow extends BaseMiner {
 
     protected provider: Web3Provider;
-    protected miner: SkalePowMiner;
-    protected userAddress: string;
 
     constructor(params: InjectedParams) {
       super(params.difficulty);
@@ -24,7 +20,7 @@ export default class InjectedPow extends BaseMiner {
         const signer = this.provider.getSigner();
 
         let nonce = await signer.getTransactionCount();
-        let gas = new BN(params.gas ?? 100000);
+        let gas: number = params.gas ?? 100000;
         const mineFreeGasResult = await this.miner.mineGasForTransaction(nonce, gas, signer._address);
         
         return await signer.sendTransaction({

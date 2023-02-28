@@ -1,7 +1,5 @@
 import { Wallet } from "@ethersproject/wallet";
-import SkalePowMiner from "@skaleproject/pow";
 import assert from "assert";
-import BN from "bn.js";
 import { BigNumber } from "@ethersproject/bignumber";
 import { Interface } from "@ethersproject/abi";
 import BaseMiner from "./miner";
@@ -10,7 +8,6 @@ import { EncodeSendParams, TransactionParams, WalletParams } from "./types";
 export default class WalletPow extends BaseMiner {
 
 	protected wallet: Wallet;
-	protected miner: SkalePowMiner;
 
 	constructor(params: WalletParams) {
 			super(params.difficulty);
@@ -22,8 +19,8 @@ export default class WalletPow extends BaseMiner {
 
 		const { to, data } = params;
 
-		let nonce = await this.wallet.getTransactionCount();
-		let gas = new BN(params.gas ?? 100000);
+		let nonce: number = await this.wallet.getTransactionCount();
+		let gas: number = params.gas ?? 100000;
 		const mineFreeGasResult = await this.miner.mineGasForTransaction(nonce, gas, this.wallet.address);
 
 		return await this.wallet.sendTransaction({

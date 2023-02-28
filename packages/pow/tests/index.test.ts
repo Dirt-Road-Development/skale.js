@@ -1,5 +1,7 @@
 import SkalePowMiner from "../src";
-import { Addresses } from "@skaleproject/constants/lib/addresses";
+import { Address } from "@skaleproject/constants";
+
+const Addresses = Address.Addresses;
 
 const CASE_1_BYTES = "fcb3959dd0f53c43ae680f6251868d60147f6b7f2fe767743d3e525def0e2eb6";
 const CASE_2_BYTES = "5be9c82cf1ef3fcf76a937ea41f1fb266755c8260f139fe31f25df18c4fa5082";
