@@ -7,24 +7,25 @@
  * @author Sawyer Cutler
 */
 
-import { Addresses } from "@skaleproject/constants/lib/addresses";
+import { Address } from "@skaleproject/constants";
 import { IInitParams } from "@skaleproject/utils";
-import { BaseContract } from "@skaleproject/utils/lib/contracts/base_contract";
-import { BigNumber, Contract, ContractReceipt, ethers } from "ethers";
+import { Contract as BaseContract } from "@skaleproject/utils";
+import { BigNumber, Contract, ContractReceipt, ethers, Wallet } from "ethers";
 import { BytesLike, isAddress } from "ethers/lib/utils";
 import MultisigWalletABI from "./abi.json";
-// import { MSGFunctionMap } from "./functions";
 import { IAddress, IBaseTransaction, ICreateNewWallet, IOnlyWalletFunction, IReplaceOwner, IRequirement, ITransaction, ITransactionCount, ITransactionId, ITransactionIds } from "./interfaces";
 import MultisigWalletBytecode from "./bytecode";
 import assert, { AssertionError } from "assert";
 
+const Addresses = Address.Addresses;
+
 /**
  * @contract MultisigWallet
  */
-export class MultisigWallet extends BaseContract {
+export class MultisigWallet extends BaseContract.Contract {
 
     public static MAX_OWNER_COUNT: number = 50;
-
+    public signer: Wallet | undefined;
     /**
      * 
      * Initialization of the MultisigWallet Contract
@@ -38,6 +39,7 @@ export class MultisigWallet extends BaseContract {
             address: params.address ?? Addresses.Schain.SCHAIN_MULTISIG_WALLET_ADDRESS,
             abi: params.abi ?? MultisigWalletABI
         });
+        this.signer = params?.signer;
     }
 
     /**
@@ -54,7 +56,8 @@ export class MultisigWallet extends BaseContract {
      * @public
     */
     public async createNewWallet(params: ICreateNewWallet) : Promise<Contract> {
-        this.checkSigner();
+        // this.checkSigner();
+        assert(this.signer, "Signer does not exist");
         this.validRequirement(params)
         
         const factory = new ethers.ContractFactory(MultisigWalletABI, MultisigWalletBytecode, this.signer);
