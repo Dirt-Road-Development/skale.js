@@ -1,6 +1,6 @@
 {
   "name": "@skaleproject/multisig-wallet",
-  "version": "0.4.1",
+  "version": "0.5.1-0",
   "description": "SKALE Network Pre-deployed Multisignature Wallet Contract",
   "exports": {
     ".": {
