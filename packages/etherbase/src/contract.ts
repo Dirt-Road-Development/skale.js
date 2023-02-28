@@ -7,9 +7,9 @@
  * @author Sawyer Cutler
 */
 
-import { Addresses } from "@skaleproject/constants/lib/addresses";
+import { Address } from "@skaleproject/constants";
 import EtherbaseABI from "./abi.json";
-import { AccessControlEnumerable } from "@skaleproject/utils/lib/index";
+import { AccessControlEnumerable, IInitParams } from "@skaleproject/utils";
 import { BigNumber, ContractReceipt, utils } from "ethers";
 import assert from "assert";
 import {
@@ -17,7 +17,8 @@ import {
     IRetrieve,
     IPartiallyRetrieve
 } from "./interfaces";
-import { IInitParams } from "@skaleproject/utils/lib/contracts/base_contract";
+
+const Addresses = Address.Addresses;
 
 
 /**
@@ -57,7 +58,7 @@ export class Etherbase extends AccessControlEnumerable {
      * @public
      */
     public async retrieve(params: IRetrieve) : Promise<ContractReceipt> {
-        assert(this.signer, "Contract: Does not have a Signer");
+        this.checkSigner();
         if (params.runChecks) await this.onlyEtherManagerCheck();
         return await this.contract.retrieve(params.receiver);
     }
@@ -76,7 +77,7 @@ export class Etherbase extends AccessControlEnumerable {
      * @public
      */
     public async partiallyRetrieve(params: IPartiallyRetrieve) : Promise<ContractReceipt> {
-        assert(this.signer, "Contract: Does not have a Signer");
+        this.checkSigner();
         if (params.runChecks) {
             await this.fullCheck({ ...params });
             await this.onlyEtherManagerCheck();
