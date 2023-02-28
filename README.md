@@ -26,7 +26,7 @@ The following are all of the SKALE.js packages available
 
 | Package Name             				| NPM Tag               | 
 | ------------------------------------- |:--------------------- |  
-| @skaleproject/constants 				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/utils)](https://www.npmjs.com/package/@skaleproject/utils) 								| 
+| @skaleproject/constants 				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/constants)](https://www.npmjs.com/package/@skaleproject/constants) 						|
 | @skaleproject/skale.js   				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/skale.js)](https://www.npmjs.com/package/@skaleproject/skale.js) 						|
 | @skaleproject/config-controller   	| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/config-controller)](https://www.npmjs.com/package/@skaleproject/config-controller) 		|
 | @skaleproject/etherbase				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/etherbase)](https://www.npmjs.com/package/@skaleproject/etherbase)                       |
@@ -36,34 +36,23 @@ The following are all of the SKALE.js packages available
 | @skaleproject/ima						| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/ima)](https://www.npmjs.com/package/@skaleproject/ima)                       			|
 | @skaleproject/pow						| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/pow)](https://www.npmjs.com/package/@skaleproject/pow)                       			|
 | @skaleproject/pow-ethers				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/pow-ethers)](https://www.npmjs.com/package/@skaleproject/pow-ethers)             		|
-| @skaleproject/pow-web3				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/pow-web3)](https://www.npmjs.com/package/@skaleproject/pow-web3)             			| 
-
+| @skaleproject/pow-web3				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/pow-web3)](https://www.npmjs.com/package/@skaleproject/pow-web3)             			|
+| @skaleproject/utils   				| [![npm (tag)](https://img.shields.io/npm/v/@skaleproject/utils)](https://www.npmjs.com/package/@skaleproject/utils)             			        |
 
 
 Contribution
 ----------
-If you are interested in making contributions to this project you should be aware of the following workflows to contribute properly:
+If you are interested in making contributions to this project you should should checkout the [GitHub Issues](https://github.com/Dirt-Road-Development/skale.js/issues).
+**help wanted** and **good first issue** are two tags you can filter by to find things to work on.
 
-#### Major Releases
----
-Major releases will consist of a broad addition of features, updates, bug fixes, and more.
+To start, fork the project, and checkout a new branch. Branch names should be in **kebab-case** and should start with one of the following:
 
-#### Feature Releases
----
-Feature releases will be merged into main during initial development. After Version 1, feature releases will be merged into beta.
-
-#### Hotfix Releases
----
-Hotfix releases should be small in scope and be pushed into production. 
-
-#### Beta Releases
----
-Beta releases will be the next major release and consist of a more cutting edge tool set. They should be used at your own risk.
-
-### Development Reasons
----
-These will will be flagged alpha pre-release and be created when PRs are opened. They should only be used for testing purposes locally and not in production.
-
+- <p style="color: red;">bug</p> For bug fixes (Example: bug-fix-something)
+- <p style="color: green;">configuration</p> For updates to the core configuration of the package suite (Example: configuration-update-esm)
+- <p style="color: blue;">docs</p> For new or updates to documentation (Example: docs-add-pow-functions)
+- <p style="color: orange;">feature</p> For new features (Example: feature-new-utility)
+- <p style="color: pink;">package</p> For new package creation (Example: package-skale-manager)
+- <p style="color: brown;">test</p> For adding or updating tests ONLY (Example: test-complete-pow)
 ---
 
 
