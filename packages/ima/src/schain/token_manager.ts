@@ -7,26 +7,27 @@
  * @author Sawyer Cutler
 */
 
-import { IInitParams } from "@skaleproject/utils/lib/contracts/base_contract";
-import { BytesLike, utils } from "ethers";
-import {AccessControlEnumerable} from "@skaleproject/utils";
+import { IContractParams } from "@skaleproject/utils";
+import { BytesLike } from "@ethersproject/bytes";
+import { id } from "ethers/lib/utils";
+import { AccessControlEnumerable } from "@skaleproject/utils";
 
 /**
  * @class TokenManager
  */
 export class TokenManager extends AccessControlEnumerable {
     
-    public AUTOMATIC_DEPLOY_ROLE = utils.id("AUTOMATIC_DEPLOY_ROLE");
-    public TOKEN_REGISTRAR_ROLE = utils.id("TOKEN_REGISTRAR_ROLE");
+    public AUTOMATIC_DEPLOY_ROLE = id("AUTOMATIC_DEPLOY_ROLE");
+    public TOKEN_REGISTRAR_ROLE = id("TOKEN_REGISTRAR_ROLE");
 
     /**
      * 
      * Initialization of the Abstract TokenManager Contract
      * This is a wrapper of the solidity smart contract 
      * 
-     * @param {IInitParams} params - The core parameters passed into the constructor
+     * @param {IContractParams} params - The core parameters passed into the constructor
      */
-    constructor(params: IInitParams) {
+    constructor(params: IContractParams) {
         super({
             ...params,
             address: params.address,
@@ -74,7 +75,7 @@ export class TokenManager extends AccessControlEnumerable {
     /**
      *
      * @function communityLocker
-     * @return {Promise<`0x{string}`> Address of CommunityLocker
+     * @return {Promise<`0x{string}`>} Address of CommunityLocker
      */
     public async getCommunityLocker() : Promise<`0x${string}`> {
         return await this.contract.callStatic.communityLocker();

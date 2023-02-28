@@ -1,9 +1,8 @@
 import { ABIs } from "@skaleproject/constants";
-// import { buildBlockScoutURL, buildRPCUrl } from "@skaleproject/utils";
 import { Utils } from "@skaleproject/utils";
 import { BigNumber, Contract, ethers, providers } from "ethers";
 import assert from "assert";
-import {TokenManagerERC20} from "../schain/token_manager_erc20";
+import { TokenManagerERC20 } from "../schain/token_manager_erc20";
 
 export interface ICheckTokenParams {
     address: `0x${string}`;
@@ -43,7 +42,7 @@ const _handleDecimals = (decimals: number | BigNumber) => {
 }
 
 export const isValidERC20 = async(params: ICheckTokenParams) : Promise<IValidERC20Response> => {
-    let isVerified: boolean | null;
+    let isVerified: boolean = false;
     const {
         address,
         chainName,
