@@ -1,23 +1,53 @@
 {
   "name": "@skaleproject/ima",
-  "version": "0.2.1",
+  "version": "0.3.1-1",
   "description": "SKALE Interchain Messaging Agent Package",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
-  "files": [
-    "lib/*"
-  ],
-  "devDependencies": {
-    "@types/jest": "^29.2.3",
-    "jest": "^29.3.1",
-    "ts-jest": "^29.0.3"
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
   },
+  "types": "./lib/cjs/types/index.d.ts",
+  "main": "./lib/cjs/index.js",
   "scripts": {
-    "build": "tsc --build ./tsconfig.json",
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:cjs": "tsc -p ./tsconfig.cjs.json",
+    "dev": "nodemon --watch \"./src/**/*.*\" --exect npm run build",
+    "prepack": "npm run build",
+    "lint": "npx eslint src tests",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "npx prettier src tests --check",
+    "prettier:fix": "npm run prettier -- --write",
+    "format": "npm run prettier:fix && npm run lint:fix",
     "build:watch": "nodemon --watch \"./src/**/*.*\" --exec npm run build",
-    "test": "jest --testTimeout=15000",
-    "test:watch": "jest --watchAll --testTimeout=15000"
+    "test": "jest --testTimeout=25000",
+    "test:watch": "jest --watch --testTimeout=25000"
   },
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^29.4.1",
+    "jest-environment-jsdom": "^29.4.1",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.3",
+    "ts-jest": "^29.0.5"
+  },
+  "files": [
+    "lib/**/*"
+  ],
   "repository": {
     "directory": "packages/ima",
     "type": "git",
@@ -34,6 +64,5 @@
     "@skaleproject/constants": "*",
     "@skaleproject/utils": "*",
     "ethers": "^5.7.2"
-  },
-  "gitHead": "515548f5779ad534a58527e21c0a0f0caca21872"
+  }
 }

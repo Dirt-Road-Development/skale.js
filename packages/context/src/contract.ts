@@ -7,17 +7,17 @@
  * @author Sawyer Cutler
 */
 
-import { Addresses } from "@skaleproject/constants/lib/addresses";
 import ContextABI from "./abi.json";
 import assert from "assert";
 import { INewOwner } from "./interfaces";
-import { BaseContract, IInitParams } from "@skaleproject/utils/lib/contracts/base_contract";
+import { IInitParams, Contract } from "@skaleproject/utils";
 import { ContractReceipt, utils } from "ethers";
+import { Address } from "@skaleproject/constants";
 
 /**
  * @class Context
  */
-export class Context extends BaseContract {
+export class Context extends Contract.Contract {
     
     /**
      * 
@@ -29,7 +29,7 @@ export class Context extends BaseContract {
     constructor(params: IInitParams) {
         super({
             ...params,
-            address: params.address ?? Addresses.Schain.SCHAIN_CONTEXT_ADDRESS,
+            address: params.address ?? Address.Addresses.Schain.SCHAIN_CONTEXT_ADDRESS,
             abi: params.abi ?? ContextABI
         });
     }

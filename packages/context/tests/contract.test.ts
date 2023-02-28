@@ -9,9 +9,11 @@
  * 
 */
 
-import { Addresses } from "@skaleproject/constants/lib/addresses";
+import { Address } from "@skaleproject/constants";
 import { ethers, utils, Wallet } from "ethers";
 import { Context } from "../src";
+
+const Addresses = Address.Addresses;
 
 const useContext = async({ useSigner }: { useSigner: boolean }) => {
     const rng = Wallet.createRandom().connect(new ethers.providers.JsonRpcProvider("https://staging-v3.skalenodes.com/v1/staging-aware-chief-gianfar"));

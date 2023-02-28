@@ -95,7 +95,7 @@ export type WalletContractParams = {
 export type TransactionParams = {
     to?: string;
     data: BytesLike;
-    gas?: BN;
+    gas?: number;
 }
 
 /**

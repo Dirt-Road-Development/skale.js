@@ -7,15 +7,18 @@
  * @author Sawyer Cutler
 */
 
-import { Addresses } from "@skaleproject/constants/lib/addresses";
-import { IInjectedParams, InjectedContract } from "@skaleproject/utils/lib/contracts/injected_contract";
-import { BigNumber, Contract, ContractReceipt, ethers } from "ethers";
-import { BytesLike, isAddress } from "ethers/lib/utils";
+import { Address } from "@skaleproject/constants";
+import { IInjectedParams, InjectedContract } from "@skaleproject/utils";
+import { Contract, ContractFactory, ContractReceipt } from "@ethersproject/contracts";
+import { BigNumber } from "@ethersproject/bignumber";
+import { isAddress } from "@ethersproject/address";
+import { BytesLike, hexlify } from "@ethersproject/bytes";
 import MultisigWalletABI from "./abi.json";
-// import { MSGFunctionMap } from "./functions";
 import { IAddress, IBaseTransaction, ICreateNewWallet, IOnlyWalletFunction, IReplaceOwner, IRequirement, ITransaction, ITransactionCount, ITransactionId, ITransactionIds } from "./interfaces";
 import MultisigWalletBytecode from "./bytecode";
 import assert, { AssertionError } from "assert";
+
+const Addresses = Address.Addresses;
 
 /**
  * @contract MultisigWallet
@@ -56,7 +59,7 @@ export class InjectedMultisigWallet extends InjectedContract {
         this.checkSigner();
         this.validRequirement(params)
         
-        const factory = new ethers.ContractFactory(MultisigWalletABI, MultisigWalletBytecode, this.contract.signer);
+        const factory = new ContractFactory(MultisigWalletABI, MultisigWalletBytecode, this.contract.signer);
         const contractDeployment = await factory.deploy(params.owners, params.required);
 
         return await contractDeployment.deployed();
@@ -211,7 +214,7 @@ export class InjectedMultisigWallet extends InjectedContract {
             params.value,
             params.data,
             {
-                gasLimit: params.gasLimit ?? ethers.utils.hexlify(375000)
+                gasLimit: params.gasLimit ?? hexlify(375000)
             }
         );
     }

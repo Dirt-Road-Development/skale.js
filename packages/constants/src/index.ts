@@ -16,7 +16,8 @@ const Constants = {
     ABIs,
     Address,
     Chains,
-    IMA_ABIs
+    IMA_ABIs,
+    Addresses: Address.Addresses
 }
 
 export {
@@ -28,3 +29,4 @@ export {
 }
 
 export * as Assertions from "./assertions";
+

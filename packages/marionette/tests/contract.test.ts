@@ -10,9 +10,11 @@
 */
 
 
-import { Addresses } from "@skaleproject/constants/lib/addresses";
+import { Address } from "@skaleproject/constants";
 import { BigNumber, ethers, utils, Wallet } from "ethers";
 import { Marionette } from "../src";
+
+const Addresses = Address.Addresses;
 
 const useMarionette = async({ useSigner }: { useSigner: boolean }) => {
     const rng = Wallet.createRandom().connect(new ethers.providers.JsonRpcProvider("https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"));

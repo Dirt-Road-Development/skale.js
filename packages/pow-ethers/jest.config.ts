@@ -9,5 +9,6 @@ export default {
   },
   errorOnDeprecated: false,
   maxWorkers: "65%",
+  testEnvironment: "jsdom",
   preset: "ts-jest",
 };

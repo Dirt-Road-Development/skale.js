@@ -29,22 +29,24 @@ export interface IContractParams extends IParams, IBaseContractParams {}
 export class BaseContract {
 
     public contract: Contract;
-    protected signer: Wallet | undefined;
+    public signerAddr: string = "";
     protected hasSigner: boolean = false;
 
     constructor(params: IContractParams) {
         let provider: providers.Provider | Wallet;
         if (params.signer) {
-            this.signer = params.signer;
+            params.signer;
             provider = params.signer;
             this.hasSigner = params.signer._isSigner;
+            // this.contract.signer.getAddress().then((addr: string) => this.signerAddr = addr);
+            this.signerAddr = provider.address;
         } else if (params.wsUrl) {
             assert(params.wsUrl.includes(("ws")), "Invalid Websocket Url");
             provider = new providers.WebSocketProvider(params.wsUrl);     
         } else {
             provider = new providers.JsonRpcProvider(params.rpcUrl);
         }
-        
+
         this.contract = new Contract(
             params.address,
             params.abi,
@@ -70,10 +72,5 @@ export class BaseContract {
         });
 
         return nameOnly ? names : funcs;
-    }
-
-    public setSigner({ signer }: { signer: Wallet }) {
-        this.signer = signer;
-        this.hasSigner = signer._isSigner;
     }
 }

@@ -7,18 +7,20 @@
  * @author Sawyer Cutler
 */
 
-import { AccessControlEnumerable } from "@skaleproject/utils/lib/contracts";
-import { Addresses } from "@skaleproject/constants/lib/addresses";
+import { AccessControlEnumerable } from "@skaleproject/utils";
+import { Address } from "@skaleproject/constants";
 import assert from "assert";
 import ConfigControllerABI from "./abi.json";
 import { ContractReceipt } from "@ethersproject/contracts";
-import { IInitParams } from "@skaleproject/utils/lib/contracts";
+import { IInitParams } from "@skaleproject/utils";
 import {
     IDefault,
     IVersion,
     IWhitelist
 } from "./interfaces";
 import { id, isAddress } from "ethers/lib/utils";
+
+const Addresses = Address.Addresses;
 
 /**
  * @class ConfigController
@@ -57,7 +59,7 @@ export class ConfigController extends AccessControlEnumerable {
         this.checkSigner();
         if (params.runChecks) {
             assert(isAddress(params.address), "Invalid Ethereum Address");
-            const hasDeployerAdminRole: boolean = await this.hasRole({ role: this.DEPLOYER_ADMIN_ROLE, account: this.signer.address });
+            const hasDeployerAdminRole: boolean = await this.hasRole({ role: this.DEPLOYER_ADMIN_ROLE, account: this.signerAddr });
             assert(hasDeployerAdminRole, "ConfigController: Signer does not have DEPLOYER_ADMIN_ROLE");
         }
 
@@ -78,10 +80,10 @@ export class ConfigController extends AccessControlEnumerable {
      * @public
     */
     public async removeFromWhitelist(params: IWhitelist) : Promise<ContractReceipt> {
-        assert(this.signer, "Contract: Does not have a Signer");
+        this.checkSigner();
         if (params.runChecks) {
             assert(isAddress(params.address), "Invalid Ethereum Address");
-            const hasDeployerAdminRole: boolean = await this.hasRole({ role: this.DEPLOYER_ADMIN_ROLE, account: this.signer.address });
+            const hasDeployerAdminRole: boolean = await this.hasRole({ role: this.DEPLOYER_ADMIN_ROLE, account: this.signerAddr });
             assert(hasDeployerAdminRole, "ConfigController: Signer does not have DEPLOYER_ADMIN_ROLE");
         }
         return await this.contract.removeFromWhitelist(params.address);
@@ -244,7 +246,7 @@ export class ConfigController extends AccessControlEnumerable {
     public async setVersion(params: IVersion) : Promise<ContractReceipt> {
         this.checkSigner();
         if (params.runChecks) {
-            const hasDefaultAdminRole: boolean = await this.hasRole({ role: this.DEFAULT_ADMIN_ROLE, account: this.signer.address });
+            const hasDefaultAdminRole: boolean = await this.hasRole({ role: this.DEFAULT_ADMIN_ROLE, account: this.signerAddr });
             assert(hasDefaultAdminRole, "ConfigController: Signer Does not have DEFAULT_ADMIN_ROLE");
         }
         
@@ -291,7 +293,7 @@ export class ConfigController extends AccessControlEnumerable {
      * 
     */
     private async fcdChecks({ isEnable }: { isEnable: boolean }) : Promise<void> {
-        const hasRole: boolean = await this.hasRole({ role: this.DEPLOYER_ADMIN_ROLE, account: this.signer.address });
+        const hasRole: boolean = await this.hasRole({ role: this.DEPLOYER_ADMIN_ROLE, account: this.signerAddr });
         assert(hasRole, "ConfigController: Does not have DEPLOYER_ADMIN_ROLE");
         const isFCDEnabled: boolean = await this.isFCDEnabled();
         assert(isEnable !== isFCDEnabled, isEnable ? "FCD Already Enabled" : "FCD Already Disabled");

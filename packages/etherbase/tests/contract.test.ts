@@ -9,9 +9,11 @@
  * 
 */
 
-import {Addresses} from "@skaleproject/constants/lib/addresses";
+import { Address } from "@skaleproject/constants";
 import { BigNumber, ethers } from "ethers";
 import { Etherbase } from "../src";
+
+const Addresses = Address.Addresses;
 
 
 describe("Etherbase Test Suite", () => {
@@ -46,7 +48,7 @@ describe("Etherbase Test Suite", () => {
     describe("retrieve() Function", () => {
         test("retrieve({ receiver }) => Invalid Signer", async () => {
             const { etherbase } = await fixture();
-            await expect(etherbase.retrieve({ receiver: "" })).rejects.toThrow("Contract: Does not have a Signer");
+            await expect(etherbase.retrieve({ receiver: "" })).rejects.toThrow("Contract: Not a valid Signer");
         })
 
         test("retrieve({ receiver, runChecks: true }) => Invalid Signer", async () => {
@@ -64,13 +66,13 @@ describe("Etherbase Test Suite", () => {
         test("partiallyRetrieve({ receiver }) => Invalid Signer", async() => {
         
             const { etherbase } = await fixture();
-            await expect(etherbase.partiallyRetrieve({ receiver: Addresses.General.ZERO_ADDRESS, amount: BigNumber.from(10) })).rejects.toThrow("Contract: Does not have a Signer")
+            await expect(etherbase.partiallyRetrieve({ receiver: Addresses.General.ZERO_ADDRESS, amount: BigNumber.from(10) })).rejects.toThrow("Contract: Not a valid Signer")
         })
     
         test("Run Checks", async() => {
             const { etherbase } = await fixture();
             
-            await expect(etherbase.partiallyRetrieve({ receiver: "", amount: BigNumber.from(0), runChecks: true })).rejects.toThrow("Contract: Does not have a Signer")
+            await expect(etherbase.partiallyRetrieve({ receiver: "", amount: BigNumber.from(0), runChecks: true })).rejects.toThrow("Contract: Not a valid Signer")
         })
 
         test("partiallyRetrieve({ reciever, runChecks: false })", async() => {

@@ -1,7 +1,9 @@
-import { Addresses } from "@skaleproject/constants/lib/addresses";
+import { Address } from "@skaleproject/constants";
 import { BigNumber, constants, ethers, Wallet } from "ethers";
 import { MultisigWallet } from "../src";
 import { ITransaction } from "../src/interfaces";
+
+const Addresses = Address.Addresses;
 
 const useMarionette = async({ useSigner }: { useSigner: boolean }) => {
     const rng = Wallet.createRandom().connect(new ethers.providers.JsonRpcProvider("https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"));
@@ -30,7 +32,7 @@ describe("createNewWallet()", () => {
                 owners: [],
                 required: 0
             })
-        ).rejects.toThrow("Contract: Not a valid Signer");
+        ).rejects.toThrow("Signer does not exist");
     })
     test("Number Owners Must be Greater Than 0", async() => {
         const { multisigWallet } = await useMarionette({ useSigner: true });
@@ -275,7 +277,7 @@ describe("getOwners()", () => {
     test("Owners", async() => {
         const { multisigWallet } = await useMarionette({ useSigner: false });
         const owners: string[] = await multisigWallet.getOwners();
-        expect(owners.length).toEqual(1); 
+        expect(owners.length).toEqual(3); 
     })
 })
 describe("getConfirmations()", () => {
@@ -324,6 +326,6 @@ describe("getRequired()", () => {
         
         await expect(
             multisigWallet.getRequired()
-        ).resolves.toEqual(1);
+        ).resolves.toEqual(2);
     });
 })

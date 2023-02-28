@@ -43,7 +43,7 @@ import {
 
 
 
-const skale = {
+const skale: any = {
     /// Constants
     constants: {
         Address,

@@ -12,8 +12,8 @@ export interface IParams {
 
 
 export interface IInjectedParams extends IParams {
-    address?: string;
-    abi?: any;
+    address: string;
+    abi: any;
 }
 
 export interface IContractParams extends IInjectedParams {}

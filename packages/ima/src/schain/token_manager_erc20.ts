@@ -7,10 +7,12 @@
  * @author Sawyer Cutler
 */
 
-import { IInitParams } from "@skaleproject/utils/lib/contracts/base_contract";
+import { IInitParams } from "@skaleproject/utils";
 import { TokenManager } from "./token_manager";
-import {IMA} from "@skaleproject/constants/lib/addresses";
+import { Address } from "@skaleproject/constants";
 import {IMA_ABIs} from "@skaleproject/constants";
+
+const IMA = Address.IMA;
 
 /**
  * @class TokenManager
