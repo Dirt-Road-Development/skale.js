@@ -11,7 +11,7 @@ export interface IProofOfWorkParms {
 export interface ITransactionParams {
   to: `0x${string}`;
   data: any;
-  gas?: BN;
+  gas?: number;
 }
 
 export interface IEncodeSendParams extends ITransactionParams {
@@ -35,7 +35,7 @@ export default class ProofOfWork {
     const { to, data } = params;
     let wallet = this.provider.eth.accounts.create();
     let nonce = await this.provider.eth.getTransactionCount(wallet.address);
-    let gas = params.gas ?? new BN(100000);
+    let gas: number = params.gas ?? 100000;
     const mineFreeGasResult = await this.miner.mineGasForTransaction(nonce, gas, wallet.address)
     return await this.provider.eth.sendTransaction({
       from: wallet.address,
