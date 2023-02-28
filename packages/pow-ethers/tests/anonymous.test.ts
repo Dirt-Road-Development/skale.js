@@ -14,7 +14,7 @@ describe("Unit Testing for Proof of Work", () => {
   describe("Successful Calls", () => {
     test("Calypso sFUEL Facuet - Anon - Hardcoded", async () => {
       const { pow } = await setupFixture();
-      expect(await pow.send({
+      expect(pow.send({
         to: "0xa9eC34461791162Cae8c312C4237C9ddd1D64336",
         data: "0x0c11dedd000000000000000000000000" + Wallet.createRandom().address.substring(2)
       })).resolves;
@@ -22,7 +22,7 @@ describe("Unit Testing for Proof of Work", () => {
 
     test("Calypso sFUEL Facuet - Anon - Encoded", async() => {
       const { pow } = await setupFixture();
-      expect(await pow.send({
+      expect(pow.send({
         to: "0xa9eC34461791162Cae8c312C4237C9ddd1D64336",
         data: new Interface(abi).encodeFunctionData(
           "pay",
