@@ -33,13 +33,11 @@ export class MultisigWallet extends BaseContract {
      * @param {IInitParams} params - The core parameters passed into the constructor
      */
      constructor(params: IInitParams) {
-         console.log("Params: ", params);
         super({
             ...params,
             address: params.address ?? Addresses.Schain.SCHAIN_MULTISIG_WALLET_ADDRESS,
             abi: params.abi ?? MultisigWalletABI
         });
-        console.log(params.signer);
     }
 
     /**
