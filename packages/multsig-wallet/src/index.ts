@@ -8,3 +8,4 @@
 */
 
 export * from  "./contract";
+export * from "./injected";

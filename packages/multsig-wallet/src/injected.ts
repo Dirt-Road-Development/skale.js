@@ -8,8 +8,7 @@
 */
 
 import { Addresses } from "@skaleproject/constants/lib/addresses";
-import { IInitParams } from "@skaleproject/utils";
-import { BaseContract } from "@skaleproject/utils/lib/contracts/base_contract";
+import { IInjectedParams, InjectedContract } from "@skaleproject/utils/lib/contracts/injected_contract";
 import { BigNumber, Contract, ContractReceipt, ethers } from "ethers";
 import { BytesLike, isAddress } from "ethers/lib/utils";
 import MultisigWalletABI from "./abi.json";
@@ -21,7 +20,7 @@ import assert, { AssertionError } from "assert";
 /**
  * @contract MultisigWallet
  */
-export class MultisigWallet extends BaseContract {
+export class InjectedMultisigWallet extends InjectedContract {
 
     public static MAX_OWNER_COUNT: number = 50;
 
@@ -32,7 +31,7 @@ export class MultisigWallet extends BaseContract {
      * 
      * @param {IInitParams} params - The core parameters passed into the constructor
      */
-     constructor(params: IInitParams) {
+     constructor(params: IInjectedParams) {
         super({
             ...params,
             address: params.address ?? Addresses.Schain.SCHAIN_MULTISIG_WALLET_ADDRESS,
@@ -57,7 +56,7 @@ export class MultisigWallet extends BaseContract {
         this.checkSigner();
         this.validRequirement(params)
         
-        const factory = new ethers.ContractFactory(MultisigWalletABI, MultisigWalletBytecode, this.signer);
+        const factory = new ethers.ContractFactory(MultisigWalletABI, MultisigWalletBytecode, this.contract.signer);
         const contractDeployment = await factory.deploy(params.owners, params.required);
 
         return await contractDeployment.deployed();

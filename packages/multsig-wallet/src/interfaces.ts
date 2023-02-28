@@ -66,6 +66,7 @@ export interface IBaseTransaction {
     destination: string;
     value: BigNumber;
     data: BytesLike;
+    gasLimit?: BigNumber;
 }
 
 /**

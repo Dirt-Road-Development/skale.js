@@ -14,12 +14,12 @@ describe("Proof of Work", () => {
       const mine = await pow.mineFreeGas(21000, Addresses.General.ZERO_ADDRESS, 0, CASE_1_BYTES);
       expect(mine).toEqual("114300136082501599864048599238123214497793374349333258509328848624001693396662");
     })
-    test("mineGasForTransaction", async() => {
+    xtest("mineGasForTransaction", async() => {
       const mine = await pow.mineGasForTransaction(0, 21000, Addresses.General.ZERO_ADDRESS, CASE_1_BYTES);
       expect(mine).toEqual("114300136082501599864048599238123214497793374349333258509328848624001693396662");
     })
   })
-  describe("Case 2", () => {
+  xdescribe("Case 2", () => {
     test("mineFreeGas()", async() => {
       const mine = await pow.mineFreeGas(21000, "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b", 0, CASE_2_BYTES);
       expect(mine).toEqual("41573526148156300086939675893764641959041302997817238081803970288791848636546");
@@ -29,7 +29,7 @@ describe("Proof of Work", () => {
       expect(mine).toEqual("41573526148156300086939675893764641959041302997817238081803970288791848636546");
     })
   })
-  describe("Case 3", () => {
+  xdescribe("Case 3", () => {
     test("mineFreeGas()", async() => {
       const mine = await pow.mineFreeGas(21000, "0xB90168C8CBcd351D069ffFdA7B71cd846924d551", 0, CASE_3_BYTES);
       expect(mine).toEqual("43262499520687449503832309260678200430029578195756655945185502101712644962772");

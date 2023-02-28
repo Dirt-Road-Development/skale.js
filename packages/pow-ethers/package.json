@@ -1,6 +1,6 @@
 {
   "name": "@skaleproject/pow-ethers",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -29,8 +29,6 @@
     "@ethersproject/abi": "^5.7.0",
     "@ethersproject/bignumber": "^5.7.0",
     "@ethersproject/contracts": "^5.7.0",
-    "@ethersproject/providers": "^5.7.2",
-    "@ethersproject/wallet": "^5.7.0",
     "@skaleproject/constants": "*",
     "@skaleproject/utils": "*",
     "@types/jest": "^29.2.3",
@@ -39,6 +37,8 @@
     "ts-jest": "^29.0.3"
   },
   "dependencies": {
+    "@ethersproject/providers": "^5.7.2",
+    "@ethersproject/wallet": "^5.7.0",
     "@skaleproject/pow": "*"
   }
 }
