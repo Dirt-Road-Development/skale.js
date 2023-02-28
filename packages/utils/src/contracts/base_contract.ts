@@ -29,13 +29,13 @@ export interface IContractParams extends IParams, IBaseContractParams {}
 export class BaseContract {
 
     public contract: Contract;
-    protected signer: Wallet | undefined;
+    public signerAddr: string = "";
     protected hasSigner: boolean = false;
 
     constructor(params: IContractParams) {
         let provider: providers.Provider | Wallet;
         if (params.signer) {
-            this.signer = params.signer;
+            params.signer;
             provider = params.signer;
             this.hasSigner = params.signer._isSigner;
         } else if (params.wsUrl) {
@@ -44,12 +44,14 @@ export class BaseContract {
         } else {
             provider = new providers.JsonRpcProvider(params.rpcUrl);
         }
-        
+
         this.contract = new Contract(
             params.address,
             params.abi,
             provider
         );
+
+        this.contract.signer.getAddress().then((addr: string) => this.signerAddr = addr);
     }
 
     public checkSigner() : void {
@@ -70,10 +72,5 @@ export class BaseContract {
         });
 
         return nameOnly ? names : funcs;
-    }
-
-    public setSigner({ signer }: { signer: Wallet }) {
-        this.signer = signer;
-        this.hasSigner = signer._isSigner;
     }
 }

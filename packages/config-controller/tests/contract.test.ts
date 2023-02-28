@@ -9,9 +9,11 @@
  * 
 */
 
-import { Addresses } from "@skaleproject/constants/lib/addresses";
+import { Address } from "@skaleproject/constants";
 import { ethers, Wallet } from "ethers";
 import { ConfigController } from "../src";
+
+const Addresses = Address.Addresses;
 
 const useConfigController = async({ useSigner }: { useSigner: boolean }) => {
     const rng = Wallet.createRandom().connect(new ethers.providers.JsonRpcProvider("https://staging-v3.skalenodes.com/v1/staging-utter-unripe-menkar"));
