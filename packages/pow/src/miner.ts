@@ -30,6 +30,8 @@ export default class SkalePowMiner {
     let candidate: BN;
     let _bytes: string;
 
+    let iterations = 0
+
     while (true) {
         _bytes = crypto.randomBytes(32).toString("hex");
         candidate = new BN(bytes ?? _bytes, 16);
@@ -38,6 +40,10 @@ export default class SkalePowMiner {
         let externalGas = divConstant.div(resultHash).toNumber();
         if (externalGas >= gasAmount) {
             break;
+        }
+        // every 2k iterations, yield to the event loop
+        if (iterations++ % 2_000 === 0) {
+          await new Promise<void>((resolve) => setTimeout(resolve, 0));
         }
     }
     return candidate.toString();
