@@ -1,7 +1,6 @@
 import SkalePowMiner from "../src";
-import { Address } from "@skaleproject/constants";
 
-const Addresses = Address.Addresses;
+const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000"
 
 const CASE_1_BYTES = "fcb3959dd0f53c43ae680f6251868d60147f6b7f2fe767743d3e525def0e2eb6";
 const CASE_2_BYTES = "5be9c82cf1ef3fcf76a937ea41f1fb266755c8260f139fe31f25df18c4fa5082";
@@ -12,12 +11,16 @@ describe("Proof of Work", () => {
   let pow: SkalePowMiner = new SkalePowMiner({});
 
   describe("Case 1", () => {
+    test("multiple iterations to get to a gas number", async() => {
+      const mine = await pow.mineFreeGas(50_000, ZERO_ADDRESS, 0);
+      expect(mine).toBeTruthy();
+    })
     test("mineFreeGas()", async() => {
-      const mine = await pow.mineFreeGas(21000, Addresses.General.ZERO_ADDRESS, 0, CASE_1_BYTES);
+      const mine = await pow.mineFreeGas(21_000, ZERO_ADDRESS, 0, CASE_1_BYTES);
       expect(mine).toEqual("114300136082501599864048599238123214497793374349333258509328848624001693396662");
     })
-    xtest("mineGasForTransaction", async() => {
-      const mine = await pow.mineGasForTransaction(0, 21000, Addresses.General.ZERO_ADDRESS, CASE_1_BYTES);
+    test("mineGasForTransaction", async() => {
+      const mine = await pow.mineGasForTransaction(0, 21000, ZERO_ADDRESS, CASE_1_BYTES);
       expect(mine).toEqual("114300136082501599864048599238123214497793374349333258509328848624001693396662");
     })
   })
