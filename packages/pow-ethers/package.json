@@ -33,15 +33,11 @@
     "test:watch": "jest --watch --testTimeout=25000"
   },
   "devDependencies": {
-    "@ethersproject/abi": "^5.7.0",
-    "@ethersproject/bignumber": "^5.7.0",
-    "@ethersproject/contracts": "^5.7.0",
     "@skaleproject/constants": "*",
     "@skaleproject/utils": "*",
     "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
-    "bn.js": "^5.2.1",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -67,8 +63,12 @@
   },
   "homepage": "https://github.com/Dirt-Road-Development/skale.js#readme",
   "dependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/bignumber": "^5.7.0",
+    "@ethersproject/contracts": "^5.7.0",
     "@ethersproject/providers": "^5.7.2",
     "@ethersproject/wallet": "^5.7.0",
-    "@skaleproject/pow": "*"
+    "@skaleproject/pow": "*",
+    "bn.js": "^5.2.1"
   }
 }
