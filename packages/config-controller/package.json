@@ -1,12 +1,12 @@
 {
   "name": "@skaleproject/config-controller",
-  "version": "0.3.1-1",
+  "version": "0.3.2",
   "description": "Config Controller Abstractions",
   "exports": {
     ".": {
       "import": {
         "types": "./lib/esm/types/index.d.ts",
-        "default": "./lib/esm/index.mjs"
+        "default": "./lib/esm/index.js"
       },
       "require": {
         "types": "./lib/cjs/types/index.d.ts",
@@ -19,7 +19,7 @@
   "scripts": {
     "clean": "rm -rf ./lib",
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc -p ./tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:esm": "tsc -p ./tsconfig.esm.json",
     "build:cjs": "tsc -p ./tsconfig.cjs.json",
     "dev": "nodemon --watch \"./src/**/*.*\" --exect npm run build",
     "prepack": "npm run build",

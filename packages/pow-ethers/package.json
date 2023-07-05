@@ -1,12 +1,12 @@
 {
   "name": "@skaleproject/pow-ethers",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "description": "",
   "exports": {
     ".": {
       "import": {
         "types": "./lib/esm/types/index.d.ts",
-        "default": "./lib/esm/index.mjs"
+        "default": "./lib/esm/index.js"
       },
       "require": {
         "types": "./lib/cjs/types/index.d.ts",
@@ -19,7 +19,7 @@
   "scripts": {
     "clean": "rm -rf ./lib",
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc -p ./tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:esm": "tsc -p ./tsconfig.esm.json",
     "build:cjs": "tsc -p ./tsconfig.cjs.json",
     "dev": "nodemon --watch \"./src/**/*.*\" --exect npm run build",
     "prepack": "npm run build",
@@ -33,15 +33,11 @@
     "test:watch": "jest --watch --testTimeout=25000"
   },
   "devDependencies": {
-    "@ethersproject/abi": "^5.7.0",
-    "@ethersproject/bignumber": "^5.7.0",
-    "@ethersproject/contracts": "^5.7.0",
     "@skaleproject/constants": "*",
     "@skaleproject/utils": "*",
     "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
-    "bn.js": "^5.2.1",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -67,8 +63,12 @@
   },
   "homepage": "https://github.com/Dirt-Road-Development/skale.js#readme",
   "dependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/bignumber": "^5.7.0",
+    "@ethersproject/contracts": "^5.7.0",
     "@ethersproject/providers": "^5.7.2",
     "@ethersproject/wallet": "^5.7.0",
-    "@skaleproject/pow": "*"
+    "@skaleproject/pow": "*",
+    "bn.js": "^5.2.1"
   }
 }
