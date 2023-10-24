@@ -34,6 +34,7 @@ export default class SkalePowMiner {
 
     while (true) {
         _bytes = crypto.randomBytes(32).toString("hex");
+
         candidate = new BN(bytes ?? _bytes, 16);
         let candidateHash = new BN((soliditySha3(candidate) as string).slice(2), 16);
         let resultHash = nonceAddressXOR.xor(candidateHash);

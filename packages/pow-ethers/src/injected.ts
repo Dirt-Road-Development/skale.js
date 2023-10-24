@@ -1,15 +1,13 @@
-import { Web3Provider } from "@ethersproject/providers";
-import { Interface } from "@ethersproject/abi";
+import { BigNumber, utils, providers } from "ethers";
 import { InjectedParams, TransactionParams, EncodeSendParams } from "./types";
-import { BigNumber } from "@ethersproject/bignumber";
 import BaseMiner from "./miner";
 
 export default class InjectedPow extends BaseMiner {
 
-    protected provider: Web3Provider;
+    protected provider: providers.Web3Provider;
 
     constructor(params: InjectedParams) {
-      super(params.difficulty);
+        super();
         this.provider = params.provider;
     }
 
@@ -21,7 +19,7 @@ export default class InjectedPow extends BaseMiner {
 
         let nonce = await signer.getTransactionCount();
         let gas: number = params.gas ?? 100000;
-        const mineFreeGasResult = await this.miner.mineGasForTransaction(nonce, gas, signer._address);
+        const mineFreeGasResult = await this.mineGasForTransaction(nonce, gas, signer._address);
         
         return await signer.sendTransaction({
           to,
@@ -35,7 +33,7 @@ export default class InjectedPow extends BaseMiner {
       
         const { abi, functionArgs, functionName} = params;
         
-        const contractInterface = new Interface(abi);
+        const contractInterface = new utils.Interface(abi);
         const data = contractInterface.encodeFunctionData(functionName, functionArgs);
     
         return await this.send({ ...params, data });
@@ -51,7 +49,7 @@ export default class InjectedPow extends BaseMiner {
      * @returns {void}
      * @public
      */
-    public updateProvider(newProvider: Web3Provider) : void {
+    public updateProvider(newProvider: providers.Web3Provider) : void {
         this.provider = newProvider;
     }
 }

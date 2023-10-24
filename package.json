@@ -37,7 +37,7 @@
     "@types/node": "^18.11.9",
     "auto-changelog": "^2.4.0",
     "lerna": "^6.1.0",
-    "nodemon": "^2.0.20",
+    "nodemon": "^2.0.22",
     "ts-node": "^10.8.0",
     "tsc-watch": "^5.0.3",
     "typedoc": "^0.23.24",
